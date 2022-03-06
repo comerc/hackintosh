@@ -1,0 +1,105 @@
+panic(cpu 0 caller 0xffffff80153d5bf3): Kernel trap at 0xffffff7fd5a66e2f, type 14=page fault, registers:
+CR0: 0x0000000080010033, CR2: 0xffffff7fd5a66e2f, CR3: 0x0000000604f5f07a, CR4: 0x00000000001626e0
+RAX: 0x00000000e00002c7, RBX: 0x0000000000000000, RCX: 0x0000000000000080, RDX: 0xffffff8015a67014
+RSP: 0xffffffe89438b1c0, RBP: 0xffffffe89438b200, RSI: 0xffffff7fd5a66e2f, RDI: 0xffffff8b78f3eb80
+R8: 0xffffff8b78f3eb80, R9: 0x0000000000000003, R10: 0x0000000000000003, R11: 0xffffffe89438b420
+R12: 0x0000000000000000, R13: 0x00000000000ad400, R14: 0xffffffe89438b260, R15: 0xffffff8b78f3eb80
+RFL: 0x0000000000010283, RIP: 0xffffff7fd5a66e2f, CS: 0x0000000000000008, SS: 0x0000000000000010
+Fault CR2: 0xffffff7fd5a66e2f, Error code: 0x0000000000000010, Fault CPU: 0x0, PL: 0, VF: 1
+
+Panicked task 0xffffff86abf6c3b0: 7 threads: pid 270: UVCAssistant
+Backtrace (CPU 0), panicked thread: 0xffffff99dde6f540, Frame : Return Address
+0xffffffe89438abf0 : 0xffffff8015285ffd mach_kernel : _handle_debugger_trap + 0x41d
+0xffffffe89438ac40 : 0xffffff80153e6035 mach_kernel : _kdp_i386_trap + 0x145
+0xffffffe89438ac80 : 0xffffff80153d5803 mach_kernel : _kernel_trap + 0x533
+0xffffffe89438acd0 : 0xffffff8015225a60 mach_kernel : _return_from_trap + 0xe0
+0xffffffe89438acf0 : 0xffffff80152863cd mach_kernel : _DebuggerTrapWithState + 0xad
+0xffffffe89438ae10 : 0xffffff8015285b86 mach_kernel : _panic_trap_to_debugger + 0x2b6
+0xffffffe89438ae70 : 0xffffff8015b16409 mach_kernel : _panic + 0x54
+0xffffffe89438aee0 : 0xffffff80153d5bf3 mach_kernel : _sync_iss_to_iks + 0x2c3
+0xffffffe89438b060 : 0xffffff80153d58d8 mach_kernel : _kernel_trap + 0x608
+0xffffffe89438b0b0 : 0xffffff8015225a60 mach_kernel : _return_from_trap + 0xe0
+0xffffffe89438b0d0 : 0xffffff7fd5a66e2f 
+0xffffffe89438b200 : 0xffffff8017dfbb1d com.apple.iokit.IOPCIFamily : __ZN8AppleVTD14spaceMapMemoryEP9vtd_spaceP18IOMemoryDescriptoryyjPK21IODMAMapSpecificationP12IODMACommandPK16IODMAMapPageListPySC_ + 0x12d
+0xffffffe89438b310 : 0xffffff8017dfc19b com.apple.iokit.IOPCIFamily : __ZN8AppleVTD13iovmMapMemoryEP18IOMemoryDescriptoryyjPK21IODMAMapSpecificationP12IODMACommandPK16IODMAMapPageListPySA_ + 0x43
+0xffffffe89438b350 : 0xffffff8015a66f81 mach_kernel : __ZNK18IOMemoryDescriptor19dmaCommandOperationEjPvj + 0x191
+0xffffffe89438b3c0 : 0xffffff8015a6080c mach_kernel : __ZN12IODMACommand7prepareEyybb + 0x30c
+0xffffffe89438b500 : 0xffffff8015a60439 mach_kernel : __ZN12IODMACommand19setMemoryDescriptorEPK18IOMemoryDescriptorb + 0x1a9
+0xffffffe89438b530 : 0xffffff80183359d4 com.apple.driver.usb.AppleUSBXHCI : __ZN30AppleUSBXHCIIsochronousRequest7prepareEP19AppleUSBHostRequest + 0x156
+0xffffffe89438b700 : 0xffffff801831fbf2 com.apple.driver.usb.AppleUSBXHCI : __ZN12AppleUSBXHCI2ioEP19AppleUSBHostRequest + 0x126
+0xffffffe89438b760 : 0xffffff80181c4c1b com.apple.iokit.IOUSBHostFamily : __ZN13IOUSBHostPipe18isochronousIoGatedERN17IOUSBHostIOSource31tInternalDataTransferParametersE + 0x131
+0xffffffe89438b7c0 : 0xffffff8015a5a0a0 mach_kernel : __ZN13IOCommandGate9runActionEPFiP8OSObjectPvS2_S2_S2_ES2_S2_S2_S2_ + 0xb0
+0xffffffe89438b820 : 0xffffff80181c4966 com.apple.iokit.IOUSBHostFamily : __ZN13IOUSBHostPipe2ioEP18IOMemoryDescriptorP31IOUSBHostIsochronousTransactionjyjP41IOUSBHostIsochronousTransactionCompletionP25IOUSBHostIsochronousFrame + 0x114
+0xffffffe89438b8d0 : 0xffffff80181c4528 com.apple.iokit.IOUSBHostFamily : __ZN13IOUSBHostPipe2ioEP18IOMemoryDescriptorP25IOUSBHostIsochronousFramejyP30IOUSBHostIsochronousCompletion + 0x124
+0xffffffe89438b960 : 0xffffff801819fd02 com.apple.iokit.IOUSBHostFamily : __ZN36AppleUSBHostFrameworkInterfaceClient10hostPipeIOEhP18IOMemoryDescriptorP25IOUSBHostIsochronousFramejyP30IOUSBHostIsochronousCompletion + 0x5a
+0xffffffe89438b9b0 : 0xffffff801819d769 com.apple.iokit.IOUSBHostFamily : __ZN36AppleUSBHostFrameworkInterfaceClient16_hostPipeIOIsochEPS_PvP25IOExternalMethodArguments + 0x303
+0xffffffe89438ba60 : 0xffffff8015a8a33d mach_kernel : __ZN12IOUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv + 0x1dd
+0xffffffe89438bab0 : 0xffffff801819dc4d com.apple.iokit.IOUSBHostFamily : __ZN36AppleUSBHostFrameworkInterfaceClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv + 0x109
+0xffffffe89438bb10 : 0xffffff8015a94abb mach_kernel : _is_io_connect_async_method + 0x3eb
+0xffffffe89438bc80 : 0xffffff801538d49f mach_kernel : _iokit_server_routine + 0x527f
+0xffffffe89438bdd0 : 0xffffff8015261048 mach_kernel : _ipc_kmsg_send + 0x468
+0xffffffe89438be60 : 0xffffff8015277a8d mach_kernel : _mach_msg_overwrite_trap + 0x2bd
+0xffffffe89438bef0 : 0xffffff80153b8f7e mach_kernel : _mach_call_munger64 + 0x22e
+0xffffffe89438bfa0 : 0xffffff8015226246 mach_kernel : _hndl_mach_scall64 + 0x16
+      Kernel Extensions in backtrace:
+         com.apple.iokit.IOPCIFamily(2.9)[
+  897B72E0-B98F-30BA-8CB2-4E5E469CE4B6
+]@0xffffff8017de7000->0xffffff8017e11fff
+         com.apple.iokit.IOUSBHostFamily(1.2)[B78215CE-B379-3406-9BEF-1DA069A1FAFB
+]@0xffffff8018162000->0xffffff80181f3fff
+            dependency: com.apple.driver.AppleBusPowerController(1.0)[CC54EDB6-85C9-3C42-8F9F-CF9BEBB8EDEE
+]@0xffffff8016691000->0xffffff8016694fff
+            dependency: com.apple.driver.AppleSMC(3.1.9)[
+  4174C698-A692-3609-94C7-453B6CEB337D
+]@0xffffff8016a29000->0xffffff8016a41fff
+            dependency: com.apple.driver.usb.AppleUSBCommon(1.0)[
+  19E24D70-253E-347A-B633-72FC9C96A1F8
+]@0xffffff8016b9b000->0xffffff8016b9efff
+            dependency: com.apple.driver.AppleUSBHostMergeProperties(1.2)[
+  087D9D35-1AA3-35E2-B9FE-BEE6A1D9A61C
+]@0xffffff8018266000->0xffffff8018266fff
+            dependency: com.apple.iokit.IOACPIFamily(1.4)[
+  9AAF8737-B8CD-3A43-A654-69FD563A54CA
+]@0xffffff8017940000->0xffffff8017941fff
+         com.apple.driver.usb.AppleUSBXHCI(1.2)[
+  5592D206-2B9F-307B-9A5D-C5EC1ECB9B31
+]@0xffffff8018311000->0xffffff801835ffff
+            dependency: com.apple.driver.usb.AppleUSBCommon(1.0)[
+  19E24D70-253E-347A-B633-72FC9C96A1F8
+]@0xffffff8016b9b000->0xffffff8016b9efff
+            dependency: com.apple.iokit.IOACPIFamily(1.4)[
+  9AAF8737-B8CD-3A43-A654-69FD563A54CA
+]@0xffffff8017940000->0xffffff8017941fff
+            dependency: com.apple.iokit.IOUSBHostFamily(1.2)[B78215CE-B379-3406-9BEF-1DA069A1FAFB
+]@0xffffff8018162000->0xffffff80181f3fff
+
+Process name corresponding to current thread (0xffffff99dde6f540): UVCAssistant
+Boot args: keepsyms=1
+
+Mac OS version: 21D49
+
+Kernel version:
+Darwin Kernel Version 21.3.0: Wed Jan  5 21: 37: 58 PST 2022; root:xnu-8019.80.24~20\/RELEASE_X86_64
+Kernel UUID: 93729D02-FE6F-355B-BA76-BA930AA7103F
+KernelCache slide: 0x0000000015000000
+KernelCache base: 0xffffff8015200000
+Kernel slide: 0x0000000015010000
+Kernel text base: 0xffffff8015210000
+__HIB  text base: 0xffffff8015100000
+System model name: iMac18,
+1 (Mac-4B682C642B45593E)
+System shutdown begun: NO
+Panic diags file available: YES (0x0)
+Hibernation exit count: 0
+
+System uptime in nanoseconds: 25810876797050
+Last Sleep:           absolute           base_tsc          base_nano
+  Uptime  : 0x000017799024937a
+  Sleep   : 0x0000000000000000 0x0000000000000000 0x0000000000000000
+  Wake    : 0x0000000000000000 0x0000007ba303f654 0x0000000000000000
+Zone info:
+Foreign   : 0xffffff80217e4000 - 0xffffff80217f1000
+Native    : 0xffffff804583f000 - 0xffffffa04583f000
+Readonly  : 0xffffff851250b000 - 0xffffff86abe9f000
+Metadata  : 0xfffffff7acb3b000 - 0xfffffff7ccd7c000
+Bitmaps   : 0xfffffff7ccd7c000 - 0xfffffff7d5d7c000

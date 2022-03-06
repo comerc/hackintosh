@@ -1,0 +1,74 @@
+panic(cpu 0 caller 0xffffff80121d5bf3): Kernel trap at 0xffffff80126bf450, type 14=page fault, registers:
+CR0: 0x000000008001003b, CR2: 0x0000000000000016, CR3: 0x000000001c61f000, CR4: 0x00000000001626e0
+RAX: 0x0000000000000016, RBX: 0xffffffd07d34fc00, RCX: 0xffffffd07d34fd00, RDX: 0x000000000000003c
+RSP: 0xffffffd05c06bd68, RBP: 0xffffffd05c06bd70, RSI: 0xffffffd07d585c00, RDI: 0xffffffd07d34fc00
+R8: 0xffffffd07d34fcb0, R9: 0xffffffd07d34fd00, R10: 0x00000000aa3a1ae5, R11: 0x0000000000000001
+R12: 0xffffffd07d34fc00, R13: 0x000000000000003c, R14: 0x000000000000003c, R15: 0xffffffd07d585c00
+RFL: 0x0000000000010202, RIP: 0xffffff80126bf450, CS: 0x0000000000000008, SS: 0x0000000000000010
+Fault CR2: 0x0000000000000016, Error code: 0x0000000000000002, Fault CPU: 0x0, PL: 0, VF: 1
+
+Panicked task 0xffffff9042561670: 227 threads: pid 0: kernel_task
+Backtrace (CPU 0), panicked thread: 0xffffff8b75ca0000, Frame : Return Address
+0xffffffd05c06b790 : 0xffffff8012085ffd mach_kernel : _handle_debugger_trap + 0x41d
+0xffffffd05c06b7e0 : 0xffffff80121e6035 mach_kernel : _kdp_i386_trap + 0x145
+0xffffffd05c06b820 : 0xffffff80121d5803 mach_kernel : _kernel_trap + 0x533
+0xffffffd05c06b870 : 0xffffff8012025a60 mach_kernel : _return_from_trap + 0xe0
+0xffffffd05c06b890 : 0xffffff80120863cd mach_kernel : _DebuggerTrapWithState + 0xad
+0xffffffd05c06b9b0 : 0xffffff8012085b86 mach_kernel : _panic_trap_to_debugger + 0x2b6
+0xffffffd05c06ba10 : 0xffffff8012916409 mach_kernel : _panic + 0x54
+0xffffffd05c06ba80 : 0xffffff80121d5bf3 mach_kernel : _sync_iss_to_iks + 0x2c3
+0xffffffd05c06bc00 : 0xffffff80121d58d8 mach_kernel : _kernel_trap + 0x608
+0xffffffd05c06bc50 : 0xffffff8012025a60 mach_kernel : _return_from_trap + 0xe0
+0xffffffd05c06bc70 : 0xffffff80126bf450 mach_kernel : _m_mclfree + 0x410
+0xffffffd05c06bd70 : 0xffffff8014957286 com.apple.iokit.IONetworkingFamily : __ZL12IO_COPY_MBUFP6__mbufS0_i + 0x25
+0xffffffd05c06bdc0 : 0xffffff8014957421 com.apple.iokit.IONetworkingFamily : __ZN19IONetworkController19replaceOrCopyPacketEPP6__mbufjPb + 0x9b
+0xffffffd05c06be00 : 0xffffff8016188a4a com.insanelymac.AtherosE2200Ethernet : __ZN12AtherosE220011rxInterruptEP18IONetworkInterfacejP11IOMbufQueuePv + 0xe6
+0xffffffd05c06beb0 : 0xffffff8016188f41 com.insanelymac.AtherosE2200Ethernet : __ZN12AtherosE220017interruptOccurredEP8OSObjectP22IOInterruptEventSourcei + 0xb7
+0xffffffd05c06bed0 : 0xffffff8012858c53 mach_kernel : __ZN22IOInterruptEventSource12checkForWorkEv + 0x163
+0xffffffd05c06bf20 : 0xffffff80128574ae mach_kernel : __ZN10IOWorkLoop15runEventSourcesEv + 0x13e
+0xffffffd05c06bf60 : 0xffffff8012856ad7 mach_kernel : __ZN10IOWorkLoop10threadMainEv + 0x37
+0xffffffd05c06bfa0 : 0xffffff801202518e mach_kernel : _call_continuation + 0x2e
+      Kernel Extensions in backtrace:
+         com.apple.iokit.IONetworkingFamily(3.4)[
+  58A9BF44-6CDC-3A24-A588-5D72E2378E2A
+]@0xffffff801494d000->0xffffff8014963fff
+         com.insanelymac.AtherosE2200Ethernet(2.2.2)[
+  14D6BA10-9384-33D1-B0D1-DA26C1DD2982
+]@0xffffff8016184000->0xffffff8016193fff
+            dependency: com.apple.iokit.IONetworkingFamily(3.4)[
+  58A9BF44-6CDC-3A24-A588-5D72E2378E2A
+]@0xffffff801494d000->0xffffff8014963fff
+            dependency: com.apple.iokit.IOPCIFamily(2.9)[
+  897B72E0-B98F-30BA-8CB2-4E5E469CE4B6
+]@0xffffff8014be7000->0xffffff8014c11fff
+
+Process name corresponding to current thread (0xffffff8b75ca0000): kernel_task
+Boot args: keepsyms=1
+
+Mac OS version: 21D49
+
+Kernel version:
+Darwin Kernel Version 21.3.0: Wed Jan  5 21: 37: 58 PST 2022; root:xnu-8019.80.24~20\/RELEASE_X86_64
+Kernel UUID: 93729D02-FE6F-355B-BA76-BA930AA7103F
+KernelCache slide: 0x0000000011e00000
+KernelCache base: 0xffffff8012000000
+Kernel slide: 0x0000000011e10000
+Kernel text base: 0xffffff8012010000
+__HIB  text base: 0xffffff8011f00000
+System model name: iMac18,
+1 (Mac-4B682C642B45593E)
+System shutdown begun: NO
+Panic diags file available: YES (0x0)
+Hibernation exit count: 0
+
+System uptime in nanoseconds: 17045203740888
+Last Sleep:           absolute           base_tsc          base_nano
+  Uptime  : 0x00000f80a5506bdc
+  Sleep   : 0x0000000000000000 0x0000000000000000 0x0000000000000000
+  Wake    : 0x0000000000000000 0x0000001a7dc85574 0x0000000000000000
+Zone info:
+Foreign   : 0xffffff801e5e4000 - 0xffffff801e5f1000
+Native    : 0xffffff80427ee000 - 0xffffffa0427ee000
+Readonly  : 0xffffff850f4ba000 - 0xffffff86a8e4e000
+Metadata  : 0xffffffe215231000 - 0xffffffe235474000
+Bitmaps   : 0xffffffe235474000 - 0xffffffe23e474000

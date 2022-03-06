@@ -1,0 +1,79 @@
+panic(cpu 0 caller 0xffffff80117d5bf3): Kernel trap at 0xffffff8011e6906c, type 14=page fault, registers:
+CR0: 0x000000008001003b, CR2: 0xffffff805ae69075, CR3: 0x000000001bc1f000, CR4: 0x00000000001626e0
+RAX: 0xffffff8011e6acf5, RBX: 0x0000000000000000, RCX: 0x0000000000000058, RDX: 0xffffff9042483078
+RSP: 0xffffffd0a460bbd0, RBP: 0xffffffd0a460bc00, RSI: 0xffffff8b75497400, RDI: 0xffffff90422a9e70
+R8: 0x0000000000472910, R9: 0x0000000000000000, R10: 0x0000000000000001, R11: 0xffffff99db6a8aa0
+R12: 0xffffff9042483078, R13: 0xffffff8b75497400, R14: 0x0000000000000000, R15: 0xffffff90422a9e70
+RFL: 0x0000000000010202, RIP: 0xffffff8011e6906c, CS: 0x0000000000000008, SS: 0x0000000000000010
+Fault CR2: 0xffffff805ae69075, Error code: 0x0000000000000002, Fault CPU: 0x0, PL: 0, VF: 1
+
+Panicked task 0xffffff8b75079670: 232 threads: pid 0: kernel_task
+Backtrace (CPU 0), panicked thread: 0xffffff99db6a8aa0, Frame : Return Address
+0xffffffd0a460b600 : 0xffffff8011685ffd mach_kernel : _handle_debugger_trap + 0x41d
+0xffffffd0a460b650 : 0xffffff80117e6035 mach_kernel : _kdp_i386_trap + 0x145
+0xffffffd0a460b690 : 0xffffff80117d5803 mach_kernel : _kernel_trap + 0x533
+0xffffffd0a460b6e0 : 0xffffff8011625a60 mach_kernel : _return_from_trap + 0xe0
+0xffffffd0a460b700 : 0xffffff80116863cd mach_kernel : _DebuggerTrapWithState + 0xad
+0xffffffd0a460b820 : 0xffffff8011685b86 mach_kernel : _panic_trap_to_debugger + 0x2b6
+0xffffffd0a460b880 : 0xffffff8011f16409 mach_kernel : _panic + 0x54
+0xffffffd0a460b8f0 : 0xffffff80117d5bf3 mach_kernel : _sync_iss_to_iks + 0x2c3
+0xffffffd0a460ba70 : 0xffffff80117d58d8 mach_kernel : _kernel_trap + 0x608
+0xffffffd0a460bac0 : 0xffffff8011625a60 mach_kernel : _return_from_trap + 0xe0
+0xffffffd0a460bae0 : 0xffffff8011e6906c mach_kernel : __ZN18IOMemoryDescriptor8dmaUnmapEP8IOMapperP12IODMACommandyyy + 0x3c
+0xffffffd0a460bc00 : 0xffffff8011e6ad1a mach_kernel : __ZNK25IOGeneralMemoryDescriptor19dmaCommandOperationEjPvj + 0x32a
+0xffffffd0a460bc90 : 0xffffff8011e60d20 mach_kernel : __ZN12IODMACommand8completeEbb + 0x1b0
+0xffffffd0a460bd30 : 0xffffff8011e604a6 mach_kernel : __ZN12IODMACommand21clearMemoryDescriptorEb + 0x46
+0xffffffd0a460bd50 : 0xffffff8014716269 com.apple.driver.usb.AppleUSBXHCI : __ZN19AppleUSBXHCIRequest8completeEv + 0x183
+0xffffffd0a460bd90 : 0xffffff8012f9ccb9 com.apple.driver.usb.AppleUSBCommon : __ZN24AppleUSBRequestCompleter20completeRequestChainEP15AppleUSBRequest + 0x4f
+0xffffffd0a460bdc0 : 0xffffff8014734eb6 com.apple.driver.usb.AppleUSBXHCI : __ZN35AppleUSBXHCIIsochronousTransferRing16scavengeRequestsEv + 0xde
+0xffffffd0a460be10 : 0xffffff8014722fbf com.apple.driver.usb.AppleUSBXHCI : __ZN12AppleUSBXHCI17interruptOccurredEP22IOInterruptEventSourcei + 0x9e3
+0xffffffd0a460bed0 : 0xffffff8011e58c53 mach_kernel : __ZN22IOInterruptEventSource12checkForWorkEv + 0x163
+0xffffffd0a460bf20 : 0xffffff8011e574ae mach_kernel : __ZN10IOWorkLoop15runEventSourcesEv + 0x13e
+0xffffffd0a460bf60 : 0xffffff8011e56ad7 mach_kernel : __ZN10IOWorkLoop10threadMainEv + 0x37
+0xffffffd0a460bfa0 : 0xffffff801162518e mach_kernel : _call_continuation + 0x2e
+      Kernel Extensions in backtrace:
+         com.apple.driver.usb.AppleUSBCommon(1.0)[
+  19E24D70-253E-347A-B633-72FC9C96A1F8
+]@0xffffff8012f9b000->0xffffff8012f9efff
+         com.apple.driver.usb.AppleUSBXHCI(1.2)[
+  5592D206-2B9F-307B-9A5D-C5EC1ECB9B31
+]@0xffffff8014711000->0xffffff801475ffff
+            dependency: com.apple.driver.usb.AppleUSBCommon(1.0)[
+  19E24D70-253E-347A-B633-72FC9C96A1F8
+]@0xffffff8012f9b000->0xffffff8012f9efff
+            dependency: com.apple.iokit.IOACPIFamily(1.4)[
+  9AAF8737-B8CD-3A43-A654-69FD563A54CA
+]@0xffffff8013d40000->0xffffff8013d41fff
+            dependency: com.apple.iokit.IOUSBHostFamily(1.2)[B78215CE-B379-3406-9BEF-1DA069A1FAFB
+]@0xffffff8014562000->0xffffff80145f3fff
+
+Process name corresponding to current thread (0xffffff99db6a8aa0): kernel_task
+Boot args: keepsyms=1
+
+Mac OS version: 21D49
+
+Kernel version:
+Darwin Kernel Version 21.3.0: Wed Jan  5 21: 37: 58 PST 2022; root:xnu-8019.80.24~20\/RELEASE_X86_64
+Kernel UUID: 93729D02-FE6F-355B-BA76-BA930AA7103F
+KernelCache slide: 0x0000000011400000
+KernelCache base: 0xffffff8011600000
+Kernel slide: 0x0000000011410000
+Kernel text base: 0xffffff8011610000
+__HIB  text base: 0xffffff8011500000
+System model name: iMac18,
+1 (Mac-4B682C642B45593E)
+System shutdown begun: NO
+Panic diags file available: YES (0x0)
+Hibernation exit count: 0
+
+System uptime in nanoseconds: 2999279757299
+Last Sleep:           absolute           base_tsc          base_nano
+  Uptime  : 0x000002ba53012b11
+  Sleep   : 0x0000000000000000 0x0000000000000000 0x0000000000000000
+  Wake    : 0x0000000000000000 0x00000015a039954c 0x0000000000000000
+Zone info:
+Foreign   : 0xffffff801dbe4000 - 0xffffff801dbf1000
+Native    : 0xffffff8041e56000 - 0xffffffa041e56000
+Readonly  : 0xffffff850eb22000 - 0xffffff86a84b6000
+Metadata  : 0xffffffe0db0ac000 - 0xffffffe0fb2ef000
+Bitmaps   : 0xffffffe0fb2ef000 - 0xffffffe1042ef000

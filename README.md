@@ -1,1 +1,1 @@
-# hackintosh
+# hackintosh bug reports

@@ -1,0 +1,59 @@
+panic(cpu 2 caller 0xffffff800ffd5bf3): Kernel trap at 0xffffff80132f0f9f, type 13=general protection, registers:
+CR0: 0x000000008001003b, CR2: 0x0000000103973000, CR3: 0x0000000402373164, CR4: 0x00000000001626e0
+RAX: 0xfffeff86a772bb98, RBX: 0xffffff8010e63610, RCX: 0x0000000009000000, RDX: 0x0000000000001002
+RSP: 0xffffffe892aabf30, RBP: 0xffffffe892aabf60, RSI: 0xffffffa0403ecc40, RDI: 0x0000000000000000
+R8:  0x0000000000000000, R9:  0x0000000000000000, R10: 0xffffffd03354d0f0, R11: 0xffffff99d8bbdaa0
+R12: 0x000000000000013c, R13: 0xffffff99d8bbe2a0, R14: 0x0000000000000001, R15: 0xffffff86a7730010
+RFL: 0x0000000000010282, RIP: 0xffffff80132f0f9f, CS:  0x0000000000000008, SS:  0x0000000000000010
+Fault CR2: 0x0000000103973000, Error code: 0x0000000000000000, Fault CPU: 0x2, PL: 1, VF: 0
+
+Panicked task 0xffffff950e0e0700: 33 threads: pid 1754: Telegram
+Backtrace (CPU 2), panicked thread: 0xffffff99d8bbdaa0, Frame : Return Address
+0xffffff800fd571f0 : 0xffffff800fe85ffd mach_kernel : _handle_debugger_trap + 0x41d
+0xffffff800fd57240 : 0xffffff800ffe6035 mach_kernel : _kdp_i386_trap + 0x145
+0xffffff800fd57280 : 0xffffff800ffd5803 mach_kernel : _kernel_trap + 0x533
+0xffffff800fd572d0 : 0xffffff800fe25a60 mach_kernel : _return_from_trap + 0xe0
+0xffffff800fd572f0 : 0xffffff800fe863cd mach_kernel : _DebuggerTrapWithState + 0xad
+0xffffff800fd57410 : 0xffffff800fe85b86 mach_kernel : _panic_trap_to_debugger + 0x2b6
+0xffffff800fd57470 : 0xffffff8010716409 mach_kernel : _panic + 0x54
+0xffffff800fd574e0 : 0xffffff800ffd5bf3 mach_kernel : _sync_iss_to_iks + 0x2c3
+0xffffff800fd57660 : 0xffffff800ffd58d8 mach_kernel : _kernel_trap + 0x608
+0xffffff800fd576b0 : 0xffffff800fe25a60 mach_kernel : _return_from_trap + 0xe0
+0xffffff800fd576d0 : 0xffffff80132f0f9f com.apple.kec.pthread : _ksyn_wqrelease + 0xfc
+0xffffffe892aabf60 : 0xffffff80132f33c3 com.apple.kec.pthread : _psynch_cvcontinue + 0x1ee
+0xffffffe892aabfa0 : 0xffffff800fe2518e mach_kernel : _call_continuation + 0x2e
+      Kernel Extensions in backtrace:
+         com.apple.kec.pthread(1.0)[8C5D7746-3A57-3C17-BBD3-0FED5C01545D]@0xffffff80132ee000->0xffffff80132f4fff
+
+Process name corresponding to current thread (0xffffff99d8bbdaa0): Telegram
+Boot args: keepsyms=1
+
+Mac OS version:
+21D49
+
+Kernel version:
+Darwin Kernel Version 21.3.0: Wed Jan  5 21:37:58 PST 2022; root:xnu-8019.80.24~20/RELEASE_X86_64
+Kernel UUID: 93729D02-FE6F-355B-BA76-BA930AA7103F
+KernelCache slide: 0x000000000fc00000
+KernelCache base:  0xffffff800fe00000
+Kernel slide:      0x000000000fc10000
+Kernel text base:  0xffffff800fe10000
+__HIB  text base: 0xffffff800fd00000
+System model name: iMac18,1 (Mac-4B682C642B45593E)
+System shutdown begun: NO
+Panic diags file available: YES (0x0)
+Hibernation exit count: 0
+
+System uptime in nanoseconds: 78346428742545
+Last Sleep:           absolute           base_tsc          base_nano
+  Uptime  : 0x00004741730dfe8c
+  Sleep   : 0x0000000000000000 0x0000000000000000 0x0000000000000000
+  Wake    : 0x0000000000000000 0x0000000d2d9fd3e8 0x0000000000000000
+Zone info:
+Foreign   : 0xffffff801c3e4000 - 0xffffff801c3f1000
+Native    : 0xffffff80404a5000 - 0xffffffa0404a5000
+Readonly  : 0xffffff850d171000 - 0xffffff86a6b05000
+Metadata  : 0xfffffff3531a5000 - 0xfffffff3733e6000
+Bitmaps   : 0xfffffff3733e6000 - 0xfffffff37c3e6000
+
+

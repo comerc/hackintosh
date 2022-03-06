@@ -1,0 +1,59 @@
+panic(cpu 2 caller 0xffffff80155d5bf3): Kernel trap at 0xffffff80154aca90, type 14=page fault, registers:
+CR0: 0x0000000080010033, CR2: 0x0000000000000470, CR3: 0x00000005fdad002d, CR4: 0x00000000001626e0
+RAX: 0xffffffd03603ac18, RBX: 0x00000cbd06013ed8, RCX: 0x0000000000000080, RDX: 0x0000000000000000
+RSP: 0xffffffd092df3c10, RBP: 0xffffffd092df3cd0, RSI: 0xffffff8016304560, RDI: 0x0000000000001000
+R8: 0x0000000000000000, R9: 0x5555555555555555, R10: 0x0f0f0f0f0f0f0f0f, R11: 0x0101010101010101
+R12: 0xffffff904be22540, R13: 0xffffff8016303100, R14: 0x3333333333333333, R15: 0x0000000000a2c2aa
+RFL: 0x0000000000010086, RIP: 0xffffff80154aca90, CS: 0x0000000000000008, SS: 0x0000000000000010
+Fault CR2: 0x0000000000000470, Error code: 0x0000000000000000, Fault CPU: 0x2, PL: 3, VF: 0
+
+Panicked task 0xffffff95127a6030: 8 threads: pid 205: coreaudiod
+Backtrace (CPU 2), panicked thread: 0xffffff904b93e540, Frame : Return Address
+0xffffffd092df3640 : 0xffffff8015485ffd mach_kernel : _handle_debugger_trap + 0x41d
+0xffffffd092df3690 : 0xffffff80155e6035 mach_kernel : _kdp_i386_trap + 0x145
+0xffffffd092df36d0 : 0xffffff80155d5803 mach_kernel : _kernel_trap + 0x533
+0xffffffd092df3720 : 0xffffff8015425a60 mach_kernel : _return_from_trap + 0xe0
+0xffffffd092df3740 : 0xffffff80154863cd mach_kernel : _DebuggerTrapWithState + 0xad
+0xffffffd092df3860 : 0xffffff8015485b86 mach_kernel : _panic_trap_to_debugger + 0x2b6
+0xffffffd092df38c0 : 0xffffff8015d16409 mach_kernel : _panic + 0x54
+0xffffffd092df3930 : 0xffffff80155d5bf3 mach_kernel : _sync_iss_to_iks + 0x2c3
+0xffffffd092df3ab0 : 0xffffff80155d58d8 mach_kernel : _kernel_trap + 0x608
+0xffffffd092df3b00 : 0xffffff8015425a60 mach_kernel : _return_from_trap + 0xe0
+0xffffffd092df3b20 : 0xffffff80154aca90 mach_kernel : _thread_setrun + 0x3d0
+0xffffffd092df3cd0 : 0xffffff80154ea549 mach_kernel : _catch_mach_exception_raise_identity_protected + 0x2049
+0xffffffd092df3d60 : 0xffffff8015465e36 mach_kernel : _ipc_mqueue_send_locked + 0xa6
+0xffffffd092df3dd0 : 0xffffff8015461450 mach_kernel : _ipc_kmsg_send + 0x870
+0xffffffd092df3e60 : 0xffffff8015477a8d mach_kernel : _mach_msg_overwrite_trap + 0x2bd
+0xffffffd092df3ef0 : 0xffffff80155b8f7e mach_kernel : _mach_call_munger64 + 0x22e
+0xffffffd092df3fa0 : 0xffffff8015426246 mach_kernel : _hndl_mach_scall64 + 0x16
+
+Process name corresponding to current thread (0xffffff904b93e540): coreaudiod
+Boot args: keepsyms=1
+
+Mac OS version: 21D49
+
+Kernel version:
+Darwin Kernel Version 21.3.0: Wed Jan  5 21: 37: 58 PST 2022; root:xnu-8019.80.24~20\/RELEASE_X86_64
+Kernel UUID: 93729D02-FE6F-355B-BA76-BA930AA7103F
+KernelCache slide: 0x0000000015200000
+KernelCache base: 0xffffff8015400000
+Kernel slide: 0x0000000015210000
+Kernel text base: 0xffffff8015410000
+__HIB  text base: 0xffffff8015300000
+System model name: iMac18,
+1 (Mac-4B682C642B45593E)
+System shutdown begun: NO
+Panic diags file available: YES (0x0)
+Hibernation exit count: 0
+
+System uptime in nanoseconds: 14005978912166
+Last Sleep:           absolute           base_tsc          base_nano
+  Uptime  : 0x00000cbd0565d8bb
+  Sleep   : 0x0000000000000000 0x0000000000000000 0x0000000000000000
+  Wake    : 0x0000000000000000 0x0000000f97933f3c 0x0000000000000000
+Zone info:
+Foreign   : 0xffffff80219e4000 - 0xffffff80219f1000
+Native    : 0xffffff8045a90000 - 0xffffffa045a90000
+Readonly  : 0xffffff851275c000 - 0xffffff86ac0f0000
+Metadata  : 0xffffffe4d595f000 - 0xffffffe4f5ba0000
+Bitmaps   : 0xffffffe4f5ba0000 - 0xffffffe4feba0000
