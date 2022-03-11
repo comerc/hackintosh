@@ -1,0 +1,435 @@
+-------------------------------------
+Translated Report (Full Report Below)
+-------------------------------------
+
+Process:               WindowServer [142]
+Path:                  /System/Library/PrivateFrameworks/SkyLight.framework/Versions/A/Resources/WindowServer
+Identifier:            WindowServer
+Version:               ???
+Code Type:             X86-64 (Native)
+Parent Process:        launchd [1]
+User ID:               88
+
+Date/Time:             2022-03-11 21:41:39.0980 +0300
+OS Version:            macOS 12.2 (21D49)
+Report Version:        12
+Anonymous UUID:        0FF0718F-B8D1-030E-9D34-39464C03752E
+
+
+Time Awake Since Boot: 28000 seconds
+
+System Integrity Protection: enabled
+
+Crashed Thread:        0  Dispatch queue: com.apple.main-thread
+
+Exception Type:        EXC_BAD_ACCESS (SIGSEGV)
+Exception Codes:       KERN_INVALID_ADDRESS at 0x0000000000000000
+Exception Codes:       0x0000000000000001, 0x0000000000000000
+Exception Note:        EXC_CORPSE_NOTIFY
+
+Termination Reason:    Namespace SIGNAL, Code 11 Segmentation fault: 11
+Terminating Process:   exc handler [142]
+
+VM Region Info: 0 is not in any region.  Bytes before following region: 4371529728
+      REGION TYPE                    START - END         [ VSIZE] PRT/MAX SHRMOD  REGION DETAIL
+      UNUSED SPACE AT START
+--->  
+      __TEXT                      104904000-104908000    [   16K] r-x/r-x SM=COW  .../WindowServer
+
+Application Specific Information:
+StartTime:2022-03-11 13:52:18
+GPU:AMD
+MetalDevice for accelerator(0x7e3b): 0x7fb8ad7b2748 (MTLDevice: 0x7fb8b1c1c000)
+IOService:/AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/PEG0@1/IOPP/GFX0@0/ATY,AMD,RadeonFramebuffer@3/AMDFramebufferVIB
+IOService:/AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/PEG0@1/IOPP/GFX0@0/ATY,AMD,RadeonFramebuffer@0/AMDFramebufferVIB
+IOService:/AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/PEG0@1/IOPP/GFX0@0/ATY,AMD,RadeonFramebuffer@2/AMDFramebufferVIB
+IOService:/AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/PEG0@1/IOPP/GFX0@0/ATY,AMD,RadeonFramebuffer@1/AMDFramebufferVIB
+boot-args: keepsyms=1 -v
+
+
+Kernel Triage:
+VM - Returned success with no page
+VM - Fault hit memory shortage
+VM - Fault hit memory shortage
+VM - Fault hit memory shortage
+
+
+Thread 0 Crashed::  Dispatch queue: com.apple.main-thread
+0   ???                           	               0x0 ???
+1   CoreDisplay                   	    0x7ff80f42a165 CoreDisplay::DisplayPipe::UpdateTargetStateColorProcessing() + 191
+2   CoreDisplay                   	    0x7ff80f43693b CoreDisplay::DisplayPipe::Commit(CoreDisplay::DisplayPipe::Transaction const&, bool) + 1551
+3   CoreDisplay                   	    0x7ff80f3ad835 CoreDisplay::Display::Commit(std::__1::vector<std::__1::unique_ptr<CoreDisplay::DisplayPipe::Transaction, std::__1::default_delete<CoreDisplay::DisplayPipe::Transaction> >, std::__1::allocator<std::__1::unique_ptr<CoreDisplay::DisplayPipe::Transaction, std::__1::default_delete<CoreDisplay::DisplayPipe::Transaction> > > >&) + 61
+4   CoreDisplay                   	    0x7ff80f3b372f CoreDisplay::Display::Present(std::__1::shared_ptr<CoreDisplay::DisplaySurface>, CGRect, CGRect, PresentSyncType, bool, PresentOptionsType, unsigned long long) + 953
+5   CoreDisplay                   	    0x7ff80f3b319f CoreDisplay::Display::Present(CoreDisplay::DisplaySurface*, PresentSyncType, unsigned long long) + 321
+6   SkyLight                      	    0x7ff81312ee99 WS::Displays::CDDisplay::present_update(WS::Displays::Update&, WS::Displays::SyncType) + 837
+7   SkyLight                      	    0x7ff8131c030b CGXUpdateDisplay + 19992
+8   SkyLight                      	    0x7ff8131b45a4 update_display_callback(void*, double) + 1602
+9   SkyLight                      	    0x7ff81321d4ea run_timer_pass + 502
+10  SkyLight                      	    0x7ff81321d618 non_coalesced_timer_handler + 16
+11  SkyLight                      	    0x7ff8132589b4 post_port_data + 264
+12  SkyLight                      	    0x7ff813258628 CGXRunOneServicesPass + 1719
+13  SkyLight                      	    0x7ff8132593c3 server_loop + 91
+14  SkyLight                      	    0x7ff8132590b6 SLXServer + 1707
+15  WindowServer                  	       0x1049073a8 0x104904000 + 13224
+16  dyld                          	       0x10b10e4fe start + 462
+
+Thread 1:: com.apple.coreanimation.render-server
+0   libsystem_kernel.dylib        	    0x7ff80dfbbaba mach_msg_trap + 10
+1   libsystem_kernel.dylib        	    0x7ff80dfbbe2b mach_msg + 59
+2   QuartzCore                    	    0x7ff81518065e CA::Render::Server::server_thread(void*) + 493
+3   QuartzCore                    	    0x7ff815180461 thread_fun(void*) + 25
+4   libsystem_pthread.dylib       	    0x7ff80dff84f4 _pthread_start + 125
+5   libsystem_pthread.dylib       	    0x7ff80dff400f thread_start + 15
+
+Thread 2::  Dispatch queue: com.apple.VirtualDisplayListener
+0   libsystem_kernel.dylib        	    0x7ff80dfbbaba mach_msg_trap + 10
+1   libsystem_kernel.dylib        	    0x7ff80dfbbe2b mach_msg + 59
+2   libsystem_kernel.dylib        	    0x7ff80dfc4059 mach_msg_server_once + 257
+3   CoreDisplay                   	    0x7ff80f37ed82 -[VirtualDisplayListener rx] + 77
+4   libdispatch.dylib             	    0x7ff80de40ad8 _dispatch_call_block_and_release + 12
+5   libdispatch.dylib             	    0x7ff80de41cc9 _dispatch_client_callout + 8
+6   libdispatch.dylib             	    0x7ff80de47cee _dispatch_lane_serial_drain + 696
+7   libdispatch.dylib             	    0x7ff80de487c8 _dispatch_lane_invoke + 366
+8   libdispatch.dylib             	    0x7ff80de527e1 _dispatch_workloop_worker_thread + 758
+9   libsystem_pthread.dylib       	    0x7ff80dff5074 _pthread_wqthread + 326
+10  libsystem_pthread.dylib       	    0x7ff80dff3ffb start_wqthread + 15
+
+Thread 3:: IOHIDService - RunLoopCompatibilityThread
+0   libsystem_kernel.dylib        	    0x7ff80dfbbaba mach_msg_trap + 10
+1   libsystem_kernel.dylib        	    0x7ff80dfbbe2b mach_msg + 59
+2   CoreFoundation                	    0x7ff80e0bfaf2 __CFRunLoopServiceMachPort + 319
+3   CoreFoundation                	    0x7ff80e0be1cb __CFRunLoopRun + 1325
+4   CoreFoundation                	    0x7ff80e0bd5dd CFRunLoopRunSpecific + 563
+5   CoreFoundation                	    0x7ff80e14562e CFRunLoopRun + 40
+6   IOKit                         	    0x7ff8109eecfd __IOHIDServiceRunLoopCompatibilityThread + 306
+7   libsystem_pthread.dylib       	    0x7ff80dff84f4 _pthread_start + 125
+8   libsystem_pthread.dylib       	    0x7ff80dff400f thread_start + 15
+
+Thread 4:
+0   libsystem_kernel.dylib        	    0x7ff80dfbbaba mach_msg_trap + 10
+1   libsystem_kernel.dylib        	    0x7ff80dfbbe2b mach_msg + 59
+2   CoreDisplay                   	    0x7ff80f458c31 CoreDisplay::Mach::Server::Start() + 147
+3   CoreDisplay                   	    0x7ff80f458d97 void* std::__1::__thread_proxy<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct> >, void (CoreDisplay::Mach::Server::*)(), CoreDisplay::Mach::Server*> >(void*) + 59
+4   libsystem_pthread.dylib       	    0x7ff80dff84f4 _pthread_start + 125
+5   libsystem_pthread.dylib       	    0x7ff80dff400f thread_start + 15
+
+Thread 5:
+0   libsystem_pthread.dylib       	    0x7ff80dff3fec start_wqthread + 0
+
+Thread 6:
+0   libsystem_pthread.dylib       	    0x7ff80dff3fec start_wqthread + 0
+
+Thread 7:: com.apple.windowserver.root_queue
+0   libsystem_kernel.dylib        	    0x7ff80dfbbb0e semaphore_timedwait_trap + 10
+1   libdispatch.dylib             	    0x7ff80de421f2 _dispatch_sema4_timedwait + 72
+2   libdispatch.dylib             	    0x7ff80de4261f _dispatch_semaphore_wait_slow + 58
+3   libdispatch.dylib             	    0x7ff80de511e7 _dispatch_worker_thread + 308
+4   libsystem_pthread.dylib       	    0x7ff80dff84f4 _pthread_start + 125
+5   libsystem_pthread.dylib       	    0x7ff80dff400f thread_start + 15
+
+Thread 8:: com.apple.windowserver.root_queue
+0   libsystem_kernel.dylib        	    0x7ff80dfbbb0e semaphore_timedwait_trap + 10
+1   libdispatch.dylib             	    0x7ff80de421f2 _dispatch_sema4_timedwait + 72
+2   libdispatch.dylib             	    0x7ff80de4261f _dispatch_semaphore_wait_slow + 58
+3   libdispatch.dylib             	    0x7ff80de511e7 _dispatch_worker_thread + 308
+4   libsystem_pthread.dylib       	    0x7ff80dff84f4 _pthread_start + 125
+5   libsystem_pthread.dylib       	    0x7ff80dff400f thread_start + 15
+
+Thread 9:: com.apple.windowserver.root_queue
+0   libsystem_kernel.dylib        	    0x7ff80dfbbb0e semaphore_timedwait_trap + 10
+1   libdispatch.dylib             	    0x7ff80de421f2 _dispatch_sema4_timedwait + 72
+2   libdispatch.dylib             	    0x7ff80de4261f _dispatch_semaphore_wait_slow + 58
+3   libdispatch.dylib             	    0x7ff80de511e7 _dispatch_worker_thread + 308
+4   libsystem_pthread.dylib       	    0x7ff80dff84f4 _pthread_start + 125
+5   libsystem_pthread.dylib       	    0x7ff80dff400f thread_start + 15
+
+Thread 10:
+0   libsystem_pthread.dylib       	    0x7ff80dff3fec start_wqthread + 0
+
+Thread 11:: com.apple.windowserver.root_queue
+0   libsystem_kernel.dylib        	    0x7ff80dfbbb0e semaphore_timedwait_trap + 10
+1   libdispatch.dylib             	    0x7ff80de421f2 _dispatch_sema4_timedwait + 72
+2   libdispatch.dylib             	    0x7ff80de4261f _dispatch_semaphore_wait_slow + 58
+3   libdispatch.dylib             	    0x7ff80de511e7 _dispatch_worker_thread + 308
+4   libsystem_pthread.dylib       	    0x7ff80dff84f4 _pthread_start + 125
+5   libsystem_pthread.dylib       	    0x7ff80dff400f thread_start + 15
+
+
+Thread 0 crashed with X86 Thread State (64-bit):
+  rax: 0x00007fb8af016d68  rbx: 0x00007ff7bb5e5b20  rcx: 0x00007ff81332d9e0  rdx: 0x0000000000000008
+  rdi: 0x00007fb8ad7f2880  rsi: 0x00007fb8ad7f2880  rbp: 0x00007ff7bb5e5b70  rsp: 0x00007ff7bb5e5b18
+   r8: 0x0000000000000013   r9: 0x00007ff816923c19  r10: 0x00007ff816923c16  r11: 0xf353ae8590851392
+  r12: 0x00007fb8b5bb0950  r13: 0x00007fb8b1e157c0  r14: 0x00007fb8af016620  r15: 0x00007fb8ad7f2880
+  rip: 0x0000000000000000  rfl: 0x0000000000010202  cr2: 0x0000000000000000
+  
+Logical CPU:     6
+Error Code:      0x00000014 (no mapping for user instruction read)
+Trap Number:     14
+
+
+Binary Images:
+               0x0 - 0xffffffffffffffff ??? (*) <00000000-0000-0000-0000-000000000000> ???
+    0x7ff80f36f000 -     0x7ff80f49afff com.apple.CoreDisplay (264) <495b273f-6358-3f45-8811-b179527b2d62> /System/Library/Frameworks/CoreDisplay.framework/Versions/A/CoreDisplay
+    0x7ff812f95000 -     0x7ff81332afff com.apple.SkyLight (1.600.0) <eab4373e-52ca-38d7-963a-9f5bd71824e9> /System/Library/PrivateFrameworks/SkyLight.framework/Versions/A/SkyLight
+       0x104904000 -        0x104907fff WindowServer (*) <01357527-1c01-3276-9218-b008e1862e3a> /System/Library/PrivateFrameworks/SkyLight.framework/Versions/A/Resources/WindowServer
+       0x10b109000 -        0x10b174fff dyld (*) <7de33963-bbc5-3996-ba6e-f1d562c17c95> /usr/lib/dyld
+    0x7ff80dfbb000 -     0x7ff80dff1fff libsystem_kernel.dylib (*) <c1d58a50-5a4d-3bcb-a1fc-ec0902ce34d3> /usr/lib/system/libsystem_kernel.dylib
+    0x7ff81513a000 -     0x7ff815422fff com.apple.QuartzCore (1.11) <9e727a38-d1d3-3d6a-940c-0ebfa61e28e6> /System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore
+    0x7ff80dff2000 -     0x7ff80dffdfff libsystem_pthread.dylib (*) <ee564342-d8f2-396d-b642-40092cf34d82> /usr/lib/system/libsystem_pthread.dylib
+    0x7ff80de3f000 -     0x7ff80de85fff libdispatch.dylib (*) <67d92c93-aa68-34c2-964b-23e8a8d32098> /usr/lib/system/libdispatch.dylib
+    0x7ff80e03f000 -     0x7ff80e541fff com.apple.CoreFoundation (6.9) <77eebafc-ad12-3973-b95a-7f1a847f631c> /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+    0x7ff81099a000 -     0x7ff810a4ffff com.apple.framework.IOKit (2.0.2) <6882364f-5963-3153-81fd-3d2444c55060> /System/Library/Frameworks/IOKit.framework/Versions/A/IOKit
+
+External Modification Summary:
+  Calls made by other processes targeting this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by all processes on this machine:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+
+VM Region Summary:
+ReadOnly portion of Libraries: Total=848.8M resident=0K(0%) swapped_out_or_unallocated=848.8M(100%)
+Writable regions: Total=2.6G written=0K(0%) resident=0K(0%) swapped_out=0K(0%) unallocated=2.6G(100%)
+
+                                VIRTUAL   REGION 
+REGION TYPE                        SIZE    COUNT (non-coalesced) 
+===========                     =======  ======= 
+Activity Tracing                   256K        1 
+CG backing stores                 59.0M      267 
+CG framebuffers                    1.4G       12 
+CG framebuffers (reserved)       610.1M       11         reserved VM address space (unallocated)
+CG raster data                     740K        3 
+ColorSync                          236K       27 
+CoreAnimation                    526.5M     1551 
+CoreGraphics                      1284K      245 
+Dispatch continuations            64.0M        1 
+Kernel Alloc Once                    8K        1 
+MALLOC                           181.1M      107 
+MALLOC guard page                   32K        8 
+Mach message (reserved)             12K        1         reserved VM address space (unallocated)
+STACK GUARD                       56.0M       12 
+Stack                             14.1M       12 
+VM_ALLOCATE                       16.6M      437 
+VM_ALLOCATE (reserved)              76K       18         reserved VM address space (unallocated)
+__CGSERVER                          16K        1 
+__DATA                            16.6M      289 
+__DATA_CONST                      12.2M      192 
+__DATA_DIRTY                       654K      107 
+__FONT_DATA                          4K        1 
+__LINKEDIT                       641.8M       23 
+__OBJC_RO                         81.8M        1 
+__OBJC_RW                         3136K        2 
+__SLSERVER                          16K        1 
+__TEXT                           207.0M      313 
+__UNICODE                          588K        1 
+dyld private memory               1024K        1 
+mapped file                       46.8M       11 
+shared memory                      920K       27 
+===========                     =======  ======= 
+TOTAL                              3.9G     3684 
+TOTAL, minus reserved VM space     3.3G     3684 
+
+
+
+-----------
+Full Report
+-----------
+
+{"app_name":"WindowServer","timestamp":"2022-03-11 21:41:43.00 +0300","app_version":"","slice_uuid":"01357527-1c01-3276-9218-b008e1862e3a","build_version":"","platform":1,"share_with_app_devs":0,"is_first_party":1,"bug_type":"309","os_version":"macOS 12.2 (21D49)","incident_id":"3CA0D4A9-AB91-4FE6-9851-652FC786F140","name":"WindowServer"}
+{
+  "uptime" : 28000,
+  "procLaunch" : "2022-03-11 13:52:10.7615 +0300",
+  "procRole" : "Graphics",
+  "version" : 2,
+  "userID" : 88,
+  "deployVersion" : 210,
+  "modelCode" : "iMac18,1",
+  "procStartAbsTime" : 3758438765,
+  "coalitionID" : 141,
+  "osVersion" : {
+    "train" : "macOS 12.2",
+    "build" : "21D49",
+    "releaseType" : "User"
+  },
+  "captureTime" : "2022-03-11 21:41:39.0980 +0300",
+  "incident" : "3CA0D4A9-AB91-4FE6-9851-652FC786F140",
+  "bug_type" : "309",
+  "pid" : 142,
+  "procExitAbsTime" : 28170632013219,
+  "cpuType" : "X86-64",
+  "procName" : "WindowServer",
+  "procPath" : "\/System\/Library\/PrivateFrameworks\/SkyLight.framework\/Versions\/A\/Resources\/WindowServer",
+  "parentProc" : "launchd",
+  "parentPid" : 1,
+  "coalitionName" : "com.apple.WindowServer",
+  "crashReporterKey" : "0FF0718F-B8D1-030E-9D34-39464C03752E",
+  "sip" : "enabled",
+  "vmRegionInfo" : "0 is not in any region.  Bytes before following region: 4371529728\n      REGION TYPE                    START - END         [ VSIZE] PRT\/MAX SHRMOD  REGION DETAIL\n      UNUSED SPACE AT START\n--->  \n      __TEXT                      104904000-104908000    [   16K] r-x\/r-x SM=COW  ...\/WindowServer",
+  "isCorpse" : 1,
+  "exception" : {"codes":"0x0000000000000001, 0x0000000000000000","rawCodes":[1,0],"type":"EXC_BAD_ACCESS","signal":"SIGSEGV","subtype":"KERN_INVALID_ADDRESS at 0x0000000000000000"},
+  "termination" : {"flags":0,"code":11,"namespace":"SIGNAL","indicator":"Segmentation fault: 11","byProc":"exc handler","byPid":142},
+  "ktriageinfo" : "VM - Returned success with no page\nVM - Fault hit memory shortage\nVM - Fault hit memory shortage\nVM - Fault hit memory shortage\n",
+  "vmregioninfo" : "0 is not in any region.  Bytes before following region: 4371529728\n      REGION TYPE                    START - END         [ VSIZE] PRT\/MAX SHRMOD  REGION DETAIL\n      UNUSED SPACE AT START\n--->  \n      __TEXT                      104904000-104908000    [   16K] r-x\/r-x SM=COW  ...\/WindowServer",
+  "asi" : {"CoreDisplay":["StartTime:2022-03-11 13:52:18","GPU:AMD","MetalDevice for accelerator(0x7e3b): 0x7fb8ad7b2748 (MTLDevice: 0x7fb8b1c1c000)","IOService:\/AppleACPIPlatformExpert\/PCI0@0\/AppleACPIPCI\/PEG0@1\/IOPP\/GFX0@0\/ATY,AMD,RadeonFramebuffer@3\/AMDFramebufferVIB","IOService:\/AppleACPIPlatformExpert\/PCI0@0\/AppleACPIPCI\/PEG0@1\/IOPP\/GFX0@0\/ATY,AMD,RadeonFramebuffer@0\/AMDFramebufferVIB","IOService:\/AppleACPIPlatformExpert\/PCI0@0\/AppleACPIPCI\/PEG0@1\/IOPP\/GFX0@0\/ATY,AMD,RadeonFramebuffer@2\/AMDFramebufferVIB","IOService:\/AppleACPIPlatformExpert\/PCI0@0\/AppleACPIPCI\/PEG0@1\/IOPP\/GFX0@0\/ATY,AMD,RadeonFramebuffer@1\/AMDFramebufferVIB"],"IOPresentment":["boot-args: keepsyms=1 -v"]},
+  "extMods" : {"caller":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"system":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"targeted":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"warnings":0},
+  "faultingThread" : 0,
+  "threads" : [{"triggered":true,"id":730,"threadState":{"r13":{"value":140431235045312},"rax":{"value":140431186816360},"rflags":{"value":66050},"cpu":{"value":6},"r14":{"value":140431186814496},"rsi":{"value":140431161501824},"r8":{"value":19},"cr2":{"value":0},"rdx":{"value":8},"r10":{"value":140703507299350},"r9":{"value":140703507299353},"r15":{"value":140431161501824},"rbx":{"value":140701977172768},"trap":{"value":14,"description":"(no mapping for user instruction read)"},"err":{"value":20},"r11":{"value":17533549662961996690},"rip":{"value":0},"rbp":{"value":140701977172848},"rsp":{"value":140701977172760},"r12":{"value":140431299643728},"rcx":{"value":140703450716640,"symbolLocation":0,"symbol":"cs_retain_count"},"flavor":"x86_THREAD_STATE","rdi":{"value":140431161501824}},"queue":"com.apple.main-thread","frames":[{"imageOffset":0,"imageIndex":0},{"imageOffset":766309,"symbol":"CoreDisplay::DisplayPipe::UpdateTargetStateColorProcessing()","symbolLocation":191,"imageIndex":1},{"imageOffset":817467,"symbol":"CoreDisplay::DisplayPipe::Commit(CoreDisplay::DisplayPipe::Transaction const&, bool)","symbolLocation":1551,"imageIndex":1},{"imageOffset":256053,"symbol":"CoreDisplay::Display::Commit(std::__1::vector<std::__1::unique_ptr<CoreDisplay::DisplayPipe::Transaction, std::__1::default_delete<CoreDisplay::DisplayPipe::Transaction> >, std::__1::allocator<std::__1::unique_ptr<CoreDisplay::DisplayPipe::Transaction, std::__1::default_delete<CoreDisplay::DisplayPipe::Transaction> > > >&)","symbolLocation":61,"imageIndex":1},{"imageOffset":280367,"symbol":"CoreDisplay::Display::Present(std::__1::shared_ptr<CoreDisplay::DisplaySurface>, CGRect, CGRect, PresentSyncType, bool, PresentOptionsType, unsigned long long)","symbolLocation":953,"imageIndex":1},{"imageOffset":278943,"symbol":"CoreDisplay::Display::Present(CoreDisplay::DisplaySurface*, PresentSyncType, unsigned long long)","symbolLocation":321,"imageIndex":1},{"imageOffset":1679001,"symbol":"WS::Displays::CDDisplay::present_update(WS::Displays::Update&, WS::Displays::SyncType)","symbolLocation":837,"imageIndex":2},{"imageOffset":2274059,"symbol":"CGXUpdateDisplay","symbolLocation":19992,"imageIndex":2},{"imageOffset":2225572,"symbol":"update_display_callback(void*, double)","symbolLocation":1602,"imageIndex":2},{"imageOffset":2655466,"symbol":"run_timer_pass","symbolLocation":502,"imageIndex":2},{"imageOffset":2655768,"symbol":"non_coalesced_timer_handler","symbolLocation":16,"imageIndex":2},{"imageOffset":2898356,"symbol":"post_port_data","symbolLocation":264,"imageIndex":2},{"imageOffset":2897448,"symbol":"CGXRunOneServicesPass","symbolLocation":1719,"imageIndex":2},{"imageOffset":2900931,"symbol":"server_loop","symbolLocation":91,"imageIndex":2},{"imageOffset":2900150,"symbol":"SLXServer","symbolLocation":1707,"imageIndex":2},{"imageOffset":13224,"imageIndex":3},{"imageOffset":21758,"symbol":"start","symbolLocation":462,"imageIndex":4}]},{"id":1829,"name":"com.apple.coreanimation.render-server","frames":[{"imageOffset":2746,"symbol":"mach_msg_trap","symbolLocation":10,"imageIndex":5},{"imageOffset":3627,"symbol":"mach_msg","symbolLocation":59,"imageIndex":5},{"imageOffset":288350,"symbol":"CA::Render::Server::server_thread(void*)","symbolLocation":493,"imageIndex":6},{"imageOffset":287841,"symbol":"thread_fun(void*)","symbolLocation":25,"imageIndex":6},{"imageOffset":25844,"symbol":"_pthread_start","symbolLocation":125,"imageIndex":7},{"imageOffset":8207,"symbol":"thread_start","symbolLocation":15,"imageIndex":7}]},{"id":1884,"queue":"com.apple.VirtualDisplayListener","frames":[{"imageOffset":2746,"symbol":"mach_msg_trap","symbolLocation":10,"imageIndex":5},{"imageOffset":3627,"symbol":"mach_msg","symbolLocation":59,"imageIndex":5},{"imageOffset":36953,"symbol":"mach_msg_server_once","symbolLocation":257,"imageIndex":5},{"imageOffset":64898,"symbol":"-[VirtualDisplayListener rx]","symbolLocation":77,"imageIndex":1},{"imageOffset":6872,"symbol":"_dispatch_call_block_and_release","symbolLocation":12,"imageIndex":8},{"imageOffset":11465,"symbol":"_dispatch_client_callout","symbolLocation":8,"imageIndex":8},{"imageOffset":36078,"symbol":"_dispatch_lane_serial_drain","symbolLocation":696,"imageIndex":8},{"imageOffset":38856,"symbol":"_dispatch_lane_invoke","symbolLocation":366,"imageIndex":8},{"imageOffset":79841,"symbol":"_dispatch_workloop_worker_thread","symbolLocation":758,"imageIndex":8},{"imageOffset":12404,"symbol":"_pthread_wqthread","symbolLocation":326,"imageIndex":7},{"imageOffset":8187,"symbol":"start_wqthread","symbolLocation":15,"imageIndex":7}]},{"id":1885,"name":"IOHIDService - RunLoopCompatibilityThread","frames":[{"imageOffset":2746,"symbol":"mach_msg_trap","symbolLocation":10,"imageIndex":5},{"imageOffset":3627,"symbol":"mach_msg","symbolLocation":59,"imageIndex":5},{"imageOffset":527090,"symbol":"__CFRunLoopServiceMachPort","symbolLocation":319,"imageIndex":9},{"imageOffset":520651,"symbol":"__CFRunLoopRun","symbolLocation":1325,"imageIndex":9},{"imageOffset":517597,"symbol":"CFRunLoopRunSpecific","symbolLocation":563,"imageIndex":9},{"imageOffset":1074734,"symbol":"CFRunLoopRun","symbolLocation":40,"imageIndex":9},{"imageOffset":347389,"symbol":"__IOHIDServiceRunLoopCompatibilityThread","symbolLocation":306,"imageIndex":10},{"imageOffset":25844,"symbol":"_pthread_start","symbolLocation":125,"imageIndex":7},{"imageOffset":8207,"symbol":"thread_start","symbolLocation":15,"imageIndex":7}]},{"id":2109,"frames":[{"imageOffset":2746,"symbol":"mach_msg_trap","symbolLocation":10,"imageIndex":5},{"imageOffset":3627,"symbol":"mach_msg","symbolLocation":59,"imageIndex":5},{"imageOffset":957489,"symbol":"CoreDisplay::Mach::Server::Start()","symbolLocation":147,"imageIndex":1},{"imageOffset":957847,"symbol":"void* std::__1::__thread_proxy<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct> >, void (CoreDisplay::Mach::Server::*)(), CoreDisplay::Mach::Server*> >(void*)","symbolLocation":59,"imageIndex":1},{"imageOffset":25844,"symbol":"_pthread_start","symbolLocation":125,"imageIndex":7},{"imageOffset":8207,"symbol":"thread_start","symbolLocation":15,"imageIndex":7}]},{"id":173465,"frames":[{"imageOffset":8172,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":7}]},{"id":173858,"frames":[{"imageOffset":8172,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":7}]},{"id":173973,"name":"com.apple.windowserver.root_queue","frames":[{"imageOffset":2830,"symbol":"semaphore_timedwait_trap","symbolLocation":10,"imageIndex":5},{"imageOffset":12786,"symbol":"_dispatch_sema4_timedwait","symbolLocation":72,"imageIndex":8},{"imageOffset":13855,"symbol":"_dispatch_semaphore_wait_slow","symbolLocation":58,"imageIndex":8},{"imageOffset":74215,"symbol":"_dispatch_worker_thread","symbolLocation":308,"imageIndex":8},{"imageOffset":25844,"symbol":"_pthread_start","symbolLocation":125,"imageIndex":7},{"imageOffset":8207,"symbol":"thread_start","symbolLocation":15,"imageIndex":7}]},{"id":174031,"name":"com.apple.windowserver.root_queue","frames":[{"imageOffset":2830,"symbol":"semaphore_timedwait_trap","symbolLocation":10,"imageIndex":5},{"imageOffset":12786,"symbol":"_dispatch_sema4_timedwait","symbolLocation":72,"imageIndex":8},{"imageOffset":13855,"symbol":"_dispatch_semaphore_wait_slow","symbolLocation":58,"imageIndex":8},{"imageOffset":74215,"symbol":"_dispatch_worker_thread","symbolLocation":308,"imageIndex":8},{"imageOffset":25844,"symbol":"_pthread_start","symbolLocation":125,"imageIndex":7},{"imageOffset":8207,"symbol":"thread_start","symbolLocation":15,"imageIndex":7}]},{"id":174060,"name":"com.apple.windowserver.root_queue","frames":[{"imageOffset":2830,"symbol":"semaphore_timedwait_trap","symbolLocation":10,"imageIndex":5},{"imageOffset":12786,"symbol":"_dispatch_sema4_timedwait","symbolLocation":72,"imageIndex":8},{"imageOffset":13855,"symbol":"_dispatch_semaphore_wait_slow","symbolLocation":58,"imageIndex":8},{"imageOffset":74215,"symbol":"_dispatch_worker_thread","symbolLocation":308,"imageIndex":8},{"imageOffset":25844,"symbol":"_pthread_start","symbolLocation":125,"imageIndex":7},{"imageOffset":8207,"symbol":"thread_start","symbolLocation":15,"imageIndex":7}]},{"id":174095,"frames":[{"imageOffset":8172,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":7}]},{"id":174177,"name":"com.apple.windowserver.root_queue","frames":[{"imageOffset":2830,"symbol":"semaphore_timedwait_trap","symbolLocation":10,"imageIndex":5},{"imageOffset":12786,"symbol":"_dispatch_sema4_timedwait","symbolLocation":72,"imageIndex":8},{"imageOffset":13855,"symbol":"_dispatch_semaphore_wait_slow","symbolLocation":58,"imageIndex":8},{"imageOffset":74215,"symbol":"_dispatch_worker_thread","symbolLocation":308,"imageIndex":8},{"imageOffset":25844,"symbol":"_pthread_start","symbolLocation":125,"imageIndex":7},{"imageOffset":8207,"symbol":"thread_start","symbolLocation":15,"imageIndex":7}]}],
+  "usedImages" : [
+  {
+    "size" : 0,
+    "source" : "A",
+    "base" : 0,
+    "uuid" : "00000000-0000-0000-0000-000000000000"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 140703383875584,
+    "CFBundleShortVersionString" : "264",
+    "CFBundleIdentifier" : "com.apple.CoreDisplay",
+    "size" : 1228800,
+    "uuid" : "495b273f-6358-3f45-8811-b179527b2d62",
+    "path" : "\/System\/Library\/Frameworks\/CoreDisplay.framework\/Versions\/A\/CoreDisplay",
+    "name" : "CoreDisplay",
+    "CFBundleVersion" : "264.1"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 140703446945792,
+    "CFBundleShortVersionString" : "1.600.0",
+    "CFBundleIdentifier" : "com.apple.SkyLight",
+    "size" : 3760128,
+    "uuid" : "eab4373e-52ca-38d7-963a-9f5bd71824e9",
+    "path" : "\/System\/Library\/PrivateFrameworks\/SkyLight.framework\/Versions\/A\/SkyLight",
+    "name" : "SkyLight"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 4371529728,
+    "size" : 16384,
+    "uuid" : "01357527-1c01-3276-9218-b008e1862e3a",
+    "path" : "\/System\/Library\/PrivateFrameworks\/SkyLight.framework\/Versions\/A\/Resources\/WindowServer",
+    "name" : "WindowServer"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 4480602112,
+    "size" : 442368,
+    "uuid" : "7de33963-bbc5-3996-ba6e-f1d562c17c95",
+    "path" : "\/usr\/lib\/dyld",
+    "name" : "dyld"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 140703363215360,
+    "size" : 225280,
+    "uuid" : "c1d58a50-5a4d-3bcb-a1fc-ec0902ce34d3",
+    "path" : "\/usr\/lib\/system\/libsystem_kernel.dylib",
+    "name" : "libsystem_kernel.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 140703482224640,
+    "CFBundleShortVersionString" : "1.11",
+    "CFBundleIdentifier" : "com.apple.QuartzCore",
+    "size" : 3051520,
+    "uuid" : "9e727a38-d1d3-3d6a-940c-0ebfa61e28e6",
+    "path" : "\/System\/Library\/Frameworks\/QuartzCore.framework\/Versions\/A\/QuartzCore",
+    "name" : "QuartzCore",
+    "CFBundleVersion" : "962.63"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 140703363440640,
+    "size" : 49152,
+    "uuid" : "ee564342-d8f2-396d-b642-40092cf34d82",
+    "path" : "\/usr\/lib\/system\/libsystem_pthread.dylib",
+    "name" : "libsystem_pthread.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 140703361658880,
+    "size" : 290816,
+    "uuid" : "67d92c93-aa68-34c2-964b-23e8a8d32098",
+    "path" : "\/usr\/lib\/system\/libdispatch.dylib",
+    "name" : "libdispatch.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64h",
+    "base" : 140703363756032,
+    "CFBundleShortVersionString" : "6.9",
+    "CFBundleIdentifier" : "com.apple.CoreFoundation",
+    "size" : 5255168,
+    "uuid" : "77eebafc-ad12-3973-b95a-7f1a847f631c",
+    "path" : "\/System\/Library\/Frameworks\/CoreFoundation.framework\/Versions\/A\/CoreFoundation",
+    "name" : "CoreFoundation",
+    "CFBundleVersion" : "1856.105"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 140703407120384,
+    "CFBundleShortVersionString" : "2.0.2",
+    "CFBundleIdentifier" : "com.apple.framework.IOKit",
+    "size" : 745472,
+    "uuid" : "6882364f-5963-3153-81fd-3d2444c55060",
+    "path" : "\/System\/Library\/Frameworks\/IOKit.framework\/Versions\/A\/IOKit",
+    "name" : "IOKit"
+  }
+],
+  "sharedCache" : {
+  "base" : 140703360208896,
+  "size" : 15216836608,
+  "uuid" : "985a74d2-8e9c-3f64-9035-a786b4845287"
+},
+  "vmSummary" : "ReadOnly portion of Libraries: Total=848.8M resident=0K(0%) swapped_out_or_unallocated=848.8M(100%)\nWritable regions: Total=2.6G written=0K(0%) resident=0K(0%) swapped_out=0K(0%) unallocated=2.6G(100%)\n\n                                VIRTUAL   REGION \nREGION TYPE                        SIZE    COUNT (non-coalesced) \n===========                     =======  ======= \nActivity Tracing                   256K        1 \nCG backing stores                 59.0M      267 \nCG framebuffers                    1.4G       12 \nCG framebuffers (reserved)       610.1M       11         reserved VM address space (unallocated)\nCG raster data                     740K        3 \nColorSync                          236K       27 \nCoreAnimation                    526.5M     1551 \nCoreGraphics                      1284K      245 \nDispatch continuations            64.0M        1 \nKernel Alloc Once                    8K        1 \nMALLOC                           181.1M      107 \nMALLOC guard page                   32K        8 \nMach message (reserved)             12K        1         reserved VM address space (unallocated)\nSTACK GUARD                       56.0M       12 \nStack                             14.1M       12 \nVM_ALLOCATE                       16.6M      437 \nVM_ALLOCATE (reserved)              76K       18         reserved VM address space (unallocated)\n__CGSERVER                          16K        1 \n__DATA                            16.6M      289 \n__DATA_CONST                      12.2M      192 \n__DATA_DIRTY                       654K      107 \n__FONT_DATA                          4K        1 \n__LINKEDIT                       641.8M       23 \n__OBJC_RO                         81.8M        1 \n__OBJC_RW                         3136K        2 \n__SLSERVER                          16K        1 \n__TEXT                           207.0M      313 \n__UNICODE                          588K        1 \ndyld private memory               1024K        1 \nmapped file                       46.8M       11 \nshared memory                      920K       27 \n===========                     =======  ======= \nTOTAL                              3.9G     3684 \nTOTAL, minus reserved VM space     3.3G     3684 \n",
+  "legacyInfo" : {
+  "threadTriggered" : {
+    "queue" : "com.apple.main-thread"
+  }
+},
+  "trialInfo" : {
+  "rollouts" : null,
+  "experiments" : null
+}
+}
+
+Model: iMac18,1, BootROM 447.60.3.0.0, 4 processors, Quad-Core Intel Core i7, 4 GHz, 16 GB, SMC 2.39f40
+Graphics: Radeon RX 580, Radeon RX 580, PCIe, 8 GB
+Display: U3277, 3840 x 2160 (2160p/4K UHD 1 - Ultra High Definition), MirrorOff, Online
+Display: PA328, 3840 x 2160 (2160p/4K UHD 1 - Ultra High Definition), MirrorOff, Online
+Display: Q2577W, 1692 x 3008, MirrorOff, Online
+Display: BenQ PD3200U, 3840 x 2160 (2160p/4K UHD 1 - Ultra High Definition), Main, MirrorOff, Online
+Memory Module: BANK 0/ChannelA-DIMM0, 4 GB, DDR3, 1867 MHz, Kingston, KHX1866C10D3/4G
+Memory Module: BANK 1/ChannelA-DIMM1, 4 GB, DDR3, 1867 MHz, Kingston, KHX1866C10D3/4G
+Memory Module: BANK 2/ChannelB-DIMM0, 4 GB, DDR3, 1867 MHz, Kingston, KHX1866C10D3/4G
+Memory Module: BANK 3/ChannelB-DIMM1, 4 GB, DDR3, 1867 MHz, Kingston, KHX1866C10D3/4G
+Bluetooth: Version (null), 0 services, 0 devices, 0 incoming serial ports
+Network Service: Ethernet, Ethernet, en0
+Serial ATA Device: ADATA SU650, 240,06 GB
+Serial ATA Device: ADATA SU650, 240,06 GB
+USB Device: USB20Bus
+USB Device: hub_device
+USB Device: USB20Bus
+USB Device: hub_device
+USB Device: USB30Bus
+USB Device: USB Laser Mouse
+USB Device: Quickfire Rapid i
+USB Device: HD Pro Webcam C920
+USB Device: RODE NT-USB
+Thunderbolt Bus: 

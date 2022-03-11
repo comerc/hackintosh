@@ -1,0 +1,69 @@
+panic(cpu 0 caller 0xffffff8005bd5bf3): Kernel trap at 0xffffff80062604dc, type 13=general protection, registers:
+CR0: 0x000000008001003b, CR2: 0x000000010edbf000, CR3: 0x000000001001f000, CR4: 0x00000000001626e0
+RAX: 0xffffff80064773ab, RBX: 0xffffff86905ed618, RCX: 0x0000000000000003, RDX: 0x0000000000000001
+RSP: 0xffffffd076263d40, RBP: 0xffffffd076263d50, RSI: 0x0000000000000003, RDI: 0xffffff902964b8f0
+R8:  0x000000000000ffff, R9:  0x00000000ffffffff, R10: 0x0000000000000003, R11: 0xffffff99c31f1aa0
+R12: 0xffffffd076263dd8, R13: 0xffffff8b5d4f1300, R14: 0x0000000000000000, R15: 0xffffff94f70b0200
+RFL: 0x0000000000010286, RIP: 0xffffff80062604dc, CS:  0x0000000000000008, SS:  0x0000000000000010
+Fault CR2: 0x000000010edbf000, Error code: 0x0000000000000000, Fault CPU: 0x0, PL: 0, VF: 0
+
+Panicked task 0xffffff94f672a670: 210 threads: pid 0: kernel_task
+Backtrace (CPU 0), panicked thread: 0xffffff99c31f1aa0, Frame : Return Address
+0xffffff80059561f0 : 0xffffff8005a85ffd mach_kernel : _handle_debugger_trap + 0x41d
+0xffffff8005956240 : 0xffffff8005be6035 mach_kernel : _kdp_i386_trap + 0x145
+0xffffff8005956280 : 0xffffff8005bd5803 mach_kernel : _kernel_trap + 0x533
+0xffffff80059562d0 : 0xffffff8005a25a60 mach_kernel : _return_from_trap + 0xe0
+0xffffff80059562f0 : 0xffffff8005a863cd mach_kernel : _DebuggerTrapWithState + 0xad
+0xffffff8005956410 : 0xffffff8005a85b86 mach_kernel : _panic_trap_to_debugger + 0x2b6
+0xffffff8005956470 : 0xffffff8006316409 mach_kernel : _panic + 0x54
+0xffffff80059564e0 : 0xffffff8005bd5bf3 mach_kernel : _sync_iss_to_iks + 0x2c3
+0xffffff8005956660 : 0xffffff8005bd58d8 mach_kernel : _kernel_trap + 0x608
+0xffffff80059566b0 : 0xffffff8005a25a60 mach_kernel : _return_from_trap + 0xe0
+0xffffff80059566d0 : 0xffffff80062604dc mach_kernel : __ZN12IODMACommand21clearMemoryDescriptorEb + 0x7c
+0xffffffd076263d50 : 0xffffff8008b16269 com.apple.driver.usb.AppleUSBXHCI : __ZN19AppleUSBXHCIRequest8completeEv + 0x183
+0xffffffd076263d90 : 0xffffff800739ccb9 com.apple.driver.usb.AppleUSBCommon : __ZN24AppleUSBRequestCompleter20completeRequestChainEP15AppleUSBRequest + 0x4f
+0xffffffd076263dc0 : 0xffffff8008b34eb6 com.apple.driver.usb.AppleUSBXHCI : __ZN35AppleUSBXHCIIsochronousTransferRing16scavengeRequestsEv + 0xde
+0xffffffd076263e10 : 0xffffff8008b22fbf com.apple.driver.usb.AppleUSBXHCI : __ZN12AppleUSBXHCI17interruptOccurredEP22IOInterruptEventSourcei + 0x9e3
+0xffffffd076263ed0 : 0xffffff8006258c53 mach_kernel : __ZN22IOInterruptEventSource12checkForWorkEv + 0x163
+0xffffffd076263f20 : 0xffffff80062574ae mach_kernel : __ZN10IOWorkLoop15runEventSourcesEv + 0x13e
+0xffffffd076263f60 : 0xffffff8006256ad7 mach_kernel : __ZN10IOWorkLoop10threadMainEv + 0x37
+0xffffffd076263fa0 : 0xffffff8005a2518e mach_kernel : _call_continuation + 0x2e
+      Kernel Extensions in backtrace:
+         com.apple.driver.usb.AppleUSBCommon(1.0)[19E24D70-253E-347A-B633-72FC9C96A1F8]@0xffffff800739b000->0xffffff800739efff
+         com.apple.driver.usb.AppleUSBXHCI(1.2)[5592D206-2B9F-307B-9A5D-C5EC1ECB9B31]@0xffffff8008b11000->0xffffff8008b5ffff
+            dependency: com.apple.driver.usb.AppleUSBCommon(1.0)[19E24D70-253E-347A-B633-72FC9C96A1F8]@0xffffff800739b000->0xffffff800739efff
+            dependency: com.apple.iokit.IOACPIFamily(1.4)[9AAF8737-B8CD-3A43-A654-69FD563A54CA]@0xffffff8008140000->0xffffff8008141fff
+            dependency: com.apple.iokit.IOUSBHostFamily(1.2)[B78215CE-B379-3406-9BEF-1DA069A1FAFB]@0xffffff8008962000->0xffffff80089f3fff
+
+Process name corresponding to current thread (0xffffff99c31f1aa0): kernel_task
+Boot args: keepsyms=1
+
+Mac OS version:
+21D49
+
+Kernel version:
+Darwin Kernel Version 21.3.0: Wed Jan  5 21:37:58 PST 2022; root:xnu-8019.80.24~20/RELEASE_X86_64
+Kernel UUID: 93729D02-FE6F-355B-BA76-BA930AA7103F
+KernelCache slide: 0x0000000005800000
+KernelCache base:  0xffffff8005a00000
+Kernel slide:      0x0000000005810000
+Kernel text base:  0xffffff8005a10000
+__HIB  text base: 0xffffff8005900000
+System model name: iMac18,1 (Mac-4B682C642B45593E)
+System shutdown begun: NO
+Panic diags file available: YES (0x0)
+Hibernation exit count: 0
+
+System uptime in nanoseconds: 7236349896089
+Last Sleep:           absolute           base_tsc          base_nano
+  Uptime  : 0x00000694d810a8d7
+  Sleep   : 0x0000000000000000 0x0000000000000000 0x0000000000000000
+  Wake    : 0x0000000000000000 0x0000000e5ea00e6c 0x0000000000000000
+Zone info:
+Foreign   : 0xffffff8011fdc000 - 0xffffff8011fe9000
+Native    : 0xffffff802990b000 - 0xffffffa02990b000
+Readonly  : 0xffffff84f65d7000 - 0xffffff868ff6b000
+Metadata  : 0xffffffd9ff001000 - 0xffffffda1f17b000
+Bitmaps   : 0xffffffda1f17b000 - 0xffffffda2517b000
+
+
