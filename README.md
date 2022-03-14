@@ -12,7 +12,6 @@ MSI Gaming 5 + 4790K + Sapphire Pulse RX580
 
 - Legacy UEFI + UEFI -> UEFI
 - Overclocking\CPU Features:
-  - Intel VT-D Tech -> Disabled
   - CFG Lock -> Disabled
 
 ## Как переключить диск в OpenCore
@@ -59,6 +58,12 @@ Every Mac uses the same OSK, so don’t be surprised that it doesn’t look like
 
 The macOS VM’s primary storage is the passthrough Samsung 970 Evo 1TB NVMe SSD, which can be installed onto and used in Monterey. However since Monterey TRIM is broken, and SetApfsTrimTimeout needs to be set in my config.plist to disable it so it doesn’t slow down boot. github.com/dortania/bugtracker/issues/192
 
+## Относительно DEBUG и RELEASE версии
+
+**DEBUG:** может значительно помочь в отладке проблем с загрузкой, однако может добавить заметную задержку во время загрузки (т.е. 3-5 секунд для перехода к подборщику). После установки вы можете легко перейти на RELEASE.
+
+**RELEASE:** Гораздо более быстрая загрузка, однако в OpenCore практически отсутствует полезная информация DEBUG, что значительно усложняет поиск неисправностей.
+
 ## Ревизия config.plist "глазками" через ProperTree - какие значения требуются (имеются)
 
 - Kernel/Quirks/DisableIoMapper -> True (False)
@@ -68,6 +73,7 @@ The macOS VM’s primary storage is the passthrough Samsung 970 Evo 1TB NVMe SSD
 - Misc/Debug/Target -> 67 (3)
 - Misc/Debug/SecureBootModel -> Default (Disabled - и не буду трогать)
 - NVRAM/Add/7C436110-AB2A-4BBB-A880-FE41995C9F82/boot-args -> -v keepsyms=1 debug=0x100
+- Kernel/Quirks/AppleXcpmCfgLock -> True (False) (Doc: this option should be avoided whenever possible.)
 
 ## Замечания OpenCore Configurator > Config Checker > Haswell > 0.7.9
 
