@@ -11,6 +11,7 @@ MSI Gaming 5 + 4790K + Sapphire Pulse RX580
 ## Изменения в BIOS
 
 - Legacy UEFI + UEFI -> UEFI
+- Serial(COM) Port -> Disabled
 - Overclocking\CPU Features:
   - CFG Lock -> Disabled
 
