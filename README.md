@@ -57,29 +57,29 @@ The macOS VM’s primary storage is the passthrough Samsung 970 Evo 1TB NVMe SSD
 
 ## Ревизия config.plist "глазками" через ProperTree - какие значения требуются (имеются)
 
-Kernel/Quirks/DisableIoMapper -> True (False)
-Kernel/Quirks/DisableRtcChecksum -> False (True - и не буду трогать)
-Misc/Debug/AppleDebug -> True (False)
-Misc/Debug/ApplePanic -> True (False)
-Misc/Debug/Target -> 67 (3)
-Misc/Debug/SecureBootModel -> Default (Disabled - и не буду трогать)
-NVRAM/Add/7C436110-AB2A-4BBB-A880-FE41995C9F82/boot-args -> -v keepsyms=1 debug=0x100
+- Kernel/Quirks/DisableIoMapper -> True (False)
+- Kernel/Quirks/DisableRtcChecksum -> False (True - и не буду трогать)
+- Misc/Debug/AppleDebug -> True (False)
+- Misc/Debug/ApplePanic -> True (False)
+- Misc/Debug/Target -> 67 (3)
+- Misc/Debug/SecureBootModel -> Default (Disabled - и не буду трогать)
+- NVRAM/Add/7C436110-AB2A-4BBB-A880-FE41995C9F82/boot-args -> -v keepsyms=1 debug=0x100
 
 ## Замечания OpenCore Configurator > Config Checker > Haswell > 0.7.9
 
-ACPI/Add/SSDT-UIAC.aml is disabled. Either enable it or remove it to get rid of this warning
-ACPI/Quirks/ResetLogoStatus = Yes but should normally be No
-Misc/Boot/PollAppleHotKeys = Yes but should normally be No
-Misc/Boot/ShowPicker = No but should normally be Yes
-Misc/Boot/PickerMode = External but should normally be Builtin
-Misc/Boot/HideAuxiliary = Yes but should normally be No
-Misc/Tools/ You can remove the tool EFIs here
-NVRAM/Add/boot-args = -v keepsyms=1 debug=0x100 You need to add alcid=<_layout_\> here since you are using AppleALC.kext
-PlatformInfo/Generic/SystemProductName = iMac18,1 this is not a suggested SMBIOS for Coffee Lake Desktop systems.
-UEFI/MinDate = -1 but should normally be 0 (Врёт!)
-UEFI/MinVersion = -1 but should normally be 0 (Врёт!)
-UEFI/AppleInput/GraphicsInputMirroring = Yes but should normally be No (Doc: The recommended setting on all hardware is true.)
-UEFI/Quirks/EnableVectorAcceleration = Yes but should normally be No
+- ACPI/Add/SSDT-UIAC.aml is disabled. Either enable it or remove it to get rid of this warning
+- ACPI/Quirks/ResetLogoStatus = Yes but should normally be No
+- Misc/Boot/PollAppleHotKeys = Yes but should normally be No
+- Misc/Boot/ShowPicker = No but should normally be Yes
+- Misc/Boot/PickerMode = External but should normally be Builtin
+- Misc/Boot/HideAuxiliary = Yes but should normally be No
+- Misc/Tools/ You can remove the tool EFIs here
+- NVRAM/Add/boot-args = -v keepsyms=1 debug=0x100 You need to add alcid=<_layout_\> here since you are using AppleALC.kext
+- PlatformInfo/Generic/SystemProductName = iMac18,1 this is not a suggested SMBIOS for Coffee Lake Desktop systems.
+- UEFI/MinDate = -1 but should normally be 0 (Врёт!)
+- UEFI/MinVersion = -1 but should normally be 0 (Врёт!)
+- UEFI/AppleInput/GraphicsInputMirroring = Yes but should normally be No (Doc: The recommended setting on all hardware is true.)
+- UEFI/Quirks/EnableVectorAcceleration = Yes but should normally be No
 
 > Из всего этого списка хочется попробовать подправить SystemProductName, или это потянет за собой что-то ещё?
 
