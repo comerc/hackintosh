@@ -1,0 +1,71 @@
+panic(cpu 0 caller 0xffffff8013bd5bf3): Kernel trap at 0xffffff801425a02d, type 14=page fault, registers:
+CR0: 0x000000008001003b, CR2: 0xffffff99d1fbc5a0, CR3: 0x000000001e021000, CR4: 0x00000000001626e0
+RAX: 0xffffff8014259ff0, RBX: 0xffffff9504986000, RCX: 0x0000000000000000, RDX: 0xffffff8b6a230300
+RSP: 0xffffffe08513bce0, RBP: 0xffffffe08513bd30, RSI: 0xffffff801539c428, RDI: 0xffffff9504986000
+R8:  0x0000000000000000, R9:  0x0000000000000000, R10: 0x0000000000000003, R11: 0x0000000000000000
+R12: 0xffffff9503fb1000, R13: 0x0000000000000003, R14: 0xffffff99d1fbc5a0, R15: 0xffffff8b6a230300
+RFL: 0x0000000000010286, RIP: 0xffffff801425a02d, CS:  0x0000000000000008, SS:  0x0000000000000010
+Fault CR2: 0xffffff99d1fbc5a0, Error code: 0x0000000000000000, Fault CPU: 0x0, PL: 0, VF: 1
+
+Panicked task 0xffffff869e02c670: 207 threads: pid 0: kernel_task
+Backtrace (CPU 0), panicked thread: 0xffffff950451f000, Frame : Return Address
+0xffffffe08513b710 : 0xffffff8013a85ffd mach_kernel : _handle_debugger_trap + 0x41d
+0xffffffe08513b760 : 0xffffff8013be6035 mach_kernel : _kdp_i386_trap + 0x145
+0xffffffe08513b7a0 : 0xffffff8013bd5803 mach_kernel : _kernel_trap + 0x533
+0xffffffe08513b7f0 : 0xffffff8013a25a60 mach_kernel : _return_from_trap + 0xe0
+0xffffffe08513b810 : 0xffffff8013a863cd mach_kernel : _DebuggerTrapWithState + 0xad
+0xffffffe08513b930 : 0xffffff8013a85b86 mach_kernel : _panic_trap_to_debugger + 0x2b6
+0xffffffe08513b990 : 0xffffff8014316409 mach_kernel : _panic + 0x54
+0xffffffe08513ba00 : 0xffffff8013bd5bf3 mach_kernel : _sync_iss_to_iks + 0x2c3
+0xffffffe08513bb80 : 0xffffff8013bd58d8 mach_kernel : _kernel_trap + 0x608
+0xffffffe08513bbd0 : 0xffffff8013a25a60 mach_kernel : _return_from_trap + 0xe0
+0xffffffe08513bbf0 : 0xffffff801425a02d mach_kernel : __ZN13IOCommandGate9runActionEPFiP8OSObjectPvS2_S2_S2_ES2_S2_S2_S2_ + 0x3d
+0xffffffe08513bd30 : 0xffffff801539c41a com.apple.driver.usb.AppleUSBCommon : __ZN19AppleUSBRequestPool13returnCommandEP9IOCommand + 0x26
+0xffffffe08513bd50 : 0xffffff801539c79b com.apple.driver.usb.AppleUSBCommon : __ZN15AppleUSBRequest8completeEv + 0x39
+0xffffffe08513bd70 : 0xffffff8016b16298 com.apple.driver.usb.AppleUSBXHCI : __ZN19AppleUSBXHCIRequest8completeEv + 0x1b2
+0xffffffe08513bdb0 : 0xffffff801539ccb9 com.apple.driver.usb.AppleUSBCommon : __ZN24AppleUSBRequestCompleter20completeRequestChainEP15AppleUSBRequest + 0x4f
+0xffffffe08513bde0 : 0xffffff8016b33478 com.apple.driver.usb.AppleUSBXHCI : __ZN24AppleUSBXHCITransferRing13transferEventEPN15StandardUSBXHCI18StandardUSBXHCITRBEy + 0x58
+0xffffffe08513be10 : 0xffffff8016b237b4 com.apple.driver.usb.AppleUSBXHCI : __ZN12AppleUSBXHCI17interruptOccurredEP22IOInterruptEventSourcei + 0x11d8
+0xffffffe08513bed0 : 0xffffff8014258c53 mach_kernel : __ZN22IOInterruptEventSource12checkForWorkEv + 0x163
+0xffffffe08513bf20 : 0xffffff80142574ae mach_kernel : __ZN10IOWorkLoop15runEventSourcesEv + 0x13e
+0xffffffe08513bf60 : 0xffffff8014256ad7 mach_kernel : __ZN10IOWorkLoop10threadMainEv + 0x37
+0xffffffe08513bfa0 : 0xffffff8013a2518e mach_kernel : _call_continuation + 0x2e
+      Kernel Extensions in backtrace:
+         com.apple.driver.usb.AppleUSBCommon(1.0)[19E24D70-253E-347A-B633-72FC9C96A1F8]@0xffffff801539b000->0xffffff801539efff
+         com.apple.driver.usb.AppleUSBXHCI(1.2)[5592D206-2B9F-307B-9A5D-C5EC1ECB9B31]@0xffffff8016b11000->0xffffff8016b5ffff
+            dependency: com.apple.driver.usb.AppleUSBCommon(1.0)[19E24D70-253E-347A-B633-72FC9C96A1F8]@0xffffff801539b000->0xffffff801539efff
+            dependency: com.apple.iokit.IOACPIFamily(1.4)[9AAF8737-B8CD-3A43-A654-69FD563A54CA]@0xffffff8016140000->0xffffff8016141fff
+            dependency: com.apple.iokit.IOUSBHostFamily(1.2)[B78215CE-B379-3406-9BEF-1DA069A1FAFB]@0xffffff8016962000->0xffffff80169f3fff
+
+Process name corresponding to current thread (0xffffff950451f000): kernel_task
+Boot args: keepsyms=1
+
+Mac OS version:
+21D49
+
+Kernel version:
+Darwin Kernel Version 21.3.0: Wed Jan  5 21:37:58 PST 2022; root:xnu-8019.80.24~20/RELEASE_X86_64
+Kernel UUID: 93729D02-FE6F-355B-BA76-BA930AA7103F
+KernelCache slide: 0x0000000013800000
+KernelCache base:  0xffffff8013a00000
+Kernel slide:      0x0000000013810000
+Kernel text base:  0xffffff8013a10000
+__HIB  text base: 0xffffff8013900000
+System model name: iMac18,1 (Mac-4B682C642B45593E)
+System shutdown begun: NO
+Panic diags file available: YES (0x0)
+Hibernation exit count: 0
+
+System uptime in nanoseconds: 24029414593446
+Last Sleep:           absolute           base_tsc          base_nano
+  Uptime  : 0x000015dac8b896b0
+  Sleep   : 0x0000000000000000 0x0000000000000000 0x0000000000000000
+  Wake    : 0x0000000000000000 0x00000032c9d2dd34 0x0000000000000000
+Zone info:
+Foreign   : 0xffffff801ffde000 - 0xffffff801ffeb000
+Native    : 0xffffff80378b5000 - 0xffffffa0378b5000
+Readonly  : 0xffffff8504581000 - 0xffffff869df15000
+Metadata  : 0xfffffff05c51a000 - 0xfffffff07c693000
+Bitmaps   : 0xfffffff07c693000 - 0xfffffff082693000
+
+
