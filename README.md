@@ -1,4 +1,8 @@
-# hackintosh bug reports
+# hackintosh
+
+## Config
+
+MSI Gaming 5 + 4790K + Sapphire Pulse RX580
 
 ## Подключить раздел EFI
 
