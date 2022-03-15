@@ -7,7 +7,7 @@
 
 ## Config
 
-MSI Z97 Gaming 5 + i7-4790K + 16GB DDR3-1600 (!) + Sapphire Pulse RX580 8GB SAMSUNG K4G80325FB-HC25
+MSI Z97 Gaming 5 + i7-4790K + 16GB DDR3-1600 (!) + Sapphire Pulse RX580 8GB
 
 ## Подключить раздел EFI
 
@@ -113,6 +113,8 @@ The macOS VM’s primary storage is the passthrough Samsung 970 Evo 1TB NVMe SSD
 **Q:** Какие брать? **A:** Laird Tflex HD90000
 
 После майнинга? [old VBIOS](./hardware/back.rom.zip) `->` [new VBIOS](https://www.techpowerup.com/vgabios/197002/sapphire-rx580-8192-171115)
+
+Маркировка памяти: SAMSUNG K4G80325FB-HC25
 
 ### Мониторы
 
