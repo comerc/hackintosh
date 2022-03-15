@@ -15,10 +15,10 @@ MSI Z97 Gaming 5 + i7-4790K + 16GB DDR3-1600 (!) + Sapphire Pulse RX580 8GB
 
 ## Изменения в BIOS
 
-- Legacy UEFI + UEFI -> UEFI
-- Serial(COM) Port -> Disabled
+- Legacy UEFI + UEFI `->` UEFI
+- Serial(COM) Port `->` Disabled
 - Overclocking\CPU Features:
-  - CFG Lock -> Disabled
+  - CFG Lock `->` Disabled
 
 ## Как переключить диск в OpenCore
 
