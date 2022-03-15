@@ -121,5 +121,5 @@ The macOS VM’s primary storage is the passthrough Samsung 970 Evo 1TB NVMe SSD
 Native
 ![](./hardware/native.jpeg)
 
-via Proxmox
+via [Proxmox](./PROXMOX-SETUP.md)
 ![](./hardware/proxmox.jpeg)
