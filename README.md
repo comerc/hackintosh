@@ -1,8 +1,8 @@
-# hackintosh
+# Hackintosh - MacOS 12 Monterey
 
 ## Config
 
-MSI Gaming 5 + 4790K + Sapphire Pulse RX580
+MSI Z97 Gaming 5 + i7-4790K + Sapphire Pulse RX580 8GB
 
 ## Подключить раздел EFI
 
@@ -91,7 +91,5 @@ The macOS VM’s primary storage is the passthrough Samsung 970 Evo 1TB NVMe SSD
 - UEFI/MinVersion = -1 but should normally be 0 (Врёт!)
 - UEFI/AppleInput/GraphicsInputMirroring = Yes but should normally be No (Doc: The recommended setting on all hardware is true.)
 - UEFI/Quirks/EnableVectorAcceleration = Yes but should normally be No
-
-> Из всего этого списка хочется попробовать подправить SystemProductName, или это потянет за собой что-то ещё?
 
 Полный список актуальных опций [тут](https://dortania.github.io/docs/latest/Configuration.html)
