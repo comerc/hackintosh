@@ -7,7 +7,7 @@
 
 ## Config
 
-MSI Z97 Gaming 5 + i7-4790K + 16GB DDR3-1600 (!) + Sapphire Pulse RX580 8GB (SAMSUNG K4G80325FB-HC25)
+MSI Z97 Gaming 5 + i7-4790K + 16GB DDR3-1600 (!) + Sapphire Pulse RX580 8GB SAMSUNG K4G80325FB-HC25
 
 ## Подключить раздел EFI
 
