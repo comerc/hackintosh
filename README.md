@@ -1,8 +1,13 @@
 # Hackintosh - MacOS 12 Monterey
 
+ЗОЧЕМ хакинтош?
+![](./hardware/wow.jpg)
+
+[Помощь в установке](https://baraholka.onliner.by/viewtopic.php?t=23550733)
+
 ## Config
 
-MSI Z97 Gaming 5 + i7-4790K + Sapphire Pulse RX580 8GB
+MSI Z97 Gaming 5 + i7-4790K + 16GB DDR3-1600 (!) + Sapphire Pulse RX580 8GB (SAMSUNG K4G80325FB-HC25)
 
 ## Подключить раздел EFI
 
@@ -67,14 +72,14 @@ The macOS VM’s primary storage is the passthrough Samsung 970 Evo 1TB NVMe SSD
 
 ## Ревизия config.plist "глазками" через ProperTree - какие значения требуются (имеются)
 
-- Kernel/Quirks/DisableIoMapper -> True (False)
-- Kernel/Quirks/DisableRtcChecksum -> False (True - и не буду трогать)
-- Misc/Debug/AppleDebug -> True (False)
-- Misc/Debug/ApplePanic -> True (False)
-- Misc/Debug/Target -> 67 (3)
-- Misc/Debug/SecureBootModel -> Default (Disabled - и не буду трогать)
-- NVRAM/Add/7C436110-AB2A-4BBB-A880-FE41995C9F82/boot-args -> -v keepsyms=1 debug=0x100
-- Kernel/Quirks/AppleXcpmCfgLock -> True (False) (Doc: this option should be avoided whenever possible.)
+- Kernel/Quirks/DisableIoMapper `->` True (False)
+- Kernel/Quirks/DisableRtcChecksum `->` False (True - и не буду трогать)
+- Misc/Debug/AppleDebug `->` True (False)
+- Misc/Debug/ApplePanic `->` True (False)
+- Misc/Debug/Target `->` 67 (3)
+- Misc/Debug/SecureBootModel `->` Default (Disabled - и не буду трогать)
+- NVRAM/Add/7C436110-AB2A-4BBB-A880-FE41995C9F82/boot-args `->` -v keepsyms=1 debug=0x100
+- Kernel/Quirks/AppleXcpmCfgLock `->` True (False) (Doc: this option should be avoided whenever possible.)
 
 ## Замечания OpenCore Configurator > Config Checker > Haswell > 0.7.9
 
@@ -93,3 +98,28 @@ The macOS VM’s primary storage is the passthrough Samsung 970 Evo 1TB NVMe SSD
 - UEFI/Quirks/EnableVectorAcceleration = Yes but should normally be No
 
 Полный список актуальных опций [тут](https://dortania.github.io/docs/latest/Configuration.html)
+
+## Hardware
+
+Толщина термопрокладок Sapphire Pulse RX580 8GB
+![](./hardware/SapphirePulseRX580.jpeg)
+
+**Q:** Какие брать? **A:** Laird Tflex HD90000
+
+[old VBIOS](./hardware/back.rom.zip) `->` [new VBIOS](https://www.techpowerup.com/vgabios/197002/sapphire-rx580-8192-171115)
+
+[Монитор ASUS PA328](./hardware/ASUS_PA328.pdf) + [Обзор](https://www.ixbt.com/monitor/asus-pa328q.shtml)
+
+![](./hardware/disassembly_asus.jpeg)
+
+[Time to upgrade your monitor](https://tonsky.me/blog/monitors/)
+
+[Кастомные мониторы по Вашему заказу](https://www.avito.ru/moskva/tovary_dlya_kompyutera/kastomnye_monitory_po_vashemu_zakazu_1785645530)
+
+## Почему нативный, а не Proxmox
+
+Native
+![](./hardware/native.jpeg)
+
+via Proxmox
+![](./hardware/proxmox.jpeg)
