@@ -1,0 +1,53 @@
+panic(cpu 0 caller 0xffffff80074ad721): Invalid queue element linkage for 0xffffff8008303560: next 0xffffff8008303560 next->prev 0xffffff8008303560 prev 0xffffffd02f31cc60 prev->next 0xffffffd02f31cc60 @queue.h:255
+Panicked task 0xffffff9504609670: 224 threads: pid 0: kernel_task
+Backtrace (CPU 0), panicked thread: 0xffffff8b6af3a540, Frame : Return Address
+0xffffffd033b22a60 : 0xffffff8007485ffd mach_kernel : _handle_debugger_trap + 0x41d
+0xffffffd033b22ab0 : 0xffffff80075e6035 mach_kernel : _kdp_i386_trap + 0x145
+0xffffffd033b22af0 : 0xffffff80075d5803 mach_kernel : _kernel_trap + 0x533
+0xffffffd033b22b40 : 0xffffff8007425a60 mach_kernel : _return_from_trap + 0xe0
+0xffffffd033b22b60 : 0xffffff80074863cd mach_kernel : _DebuggerTrapWithState + 0xad
+0xffffffd033b22c80 : 0xffffff8007485b86 mach_kernel : _panic_trap_to_debugger + 0x2b6
+0xffffffd033b22ce0 : 0xffffff8007d16409 mach_kernel : _panic + 0x54
+0xffffffd033b22d50 : 0xffffff80074ad721 mach_kernel : _thread_setrun + 0x1061
+0xffffffd033b22e30 : 0xffffff80074ac2e7 mach_kernel : _thread_timer_expire + 0x107
+0xffffffd033b22e60 : 0xffffff80074e3892 mach_kernel : _timer_queue_expire_with_options + 0x282
+0xffffffd033b22f10 : 0xffffff80075c0c73 mach_kernel : _timer_intr + 0x83
+0xffffffd033b22f50 : 0xffffff80075df12a mach_kernel : _lapic_interrupt + 0x4a
+0xffffffd033b22f70 : 0xffffff80075d4fb7 mach_kernel : _interrupt + 0xd7
+0xffffffd033b22fd0 : 0xffffff8007425c0d mach_kernel : _hndl_allintrs + 0x11d
+0xffffffe88e29bf40 : 0xffffff80074b69ca mach_kernel : _processor_idle + 0x10a
+0xffffffe88e29bf80 : 0xffffff80074b6bc9 mach_kernel : _idle_thread + 0x49
+0xffffffe88e29bfa0 : 0xffffff800742518e mach_kernel : _call_continuation + 0x2e
+
+Process name corresponding to current thread (0xffffff8b6af3a540): kernel_task
+Boot args: -v keepsyms=1 debug=0x100
+
+Mac OS version:
+21D49
+
+Kernel version:
+Darwin Kernel Version 21.3.0: Wed Jan  5 21:37:58 PST 2022; root:xnu-8019.80.24~20/RELEASE_X86_64
+Kernel UUID: 93729D02-FE6F-355B-BA76-BA930AA7103F
+KernelCache slide: 0x0000000007200000
+KernelCache base:  0xffffff8007400000
+Kernel slide:      0x0000000007210000
+Kernel text base:  0xffffff8007410000
+__HIB  text base: 0xffffff8007300000
+System model name: iMac18,1 (Mac-4B682C642B45593E)
+System shutdown begun: NO
+Panic diags file available: YES (0x0)
+Hibernation exit count: 0
+
+System uptime in nanoseconds: 7944484544013
+Last Sleep:           absolute           base_tsc          base_nano
+  Uptime  : 0x00000739b82de11c
+  Sleep   : 0x0000000000000000 0x0000000000000000 0x0000000000000000
+  Wake    : 0x0000000000000000 0x0000000eb681d19c 0x0000000000000000
+Zone info:
+Foreign   : 0xffffff80139ea000 - 0xffffff80139f7000
+Native    : 0xffffff8037ace000 - 0xffffffa037ace000
+Readonly  : 0xffffff850479a000 - 0xffffff869e12e000
+Metadata  : 0xfffffff34c0c6000 - 0xfffffff36c307000
+Bitmaps   : 0xfffffff36c307000 - 0xfffffff375307000
+
+
