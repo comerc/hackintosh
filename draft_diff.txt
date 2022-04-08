@@ -1,0 +1,101 @@
+легенда: "старый" - мой конфиг, "новый" - от Влада
+
+// новый
+
+		<key>MmioWhitelist</key>
+		<array>
+			<dict>
+				<key>Address</key>
+				<integer>4275159040</integer>
+				<key>Comment</key>
+				<string>Haswell: SB_RCBA is a 0x4 page memory region, containing SPI_BASE at 0x3800 (SPI_BASE_ADDRESS)</string>
+				<key>Enabled</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>Address</key>
+				<integer>4278190080</integer>
+				<key>Comment</key>
+				<string>Generic: PCI root is a 0x1000 page memory region used by some firmwares</string>
+				<key>Enabled</key>
+				<false/>
+			</dict>
+		</array>
+
+		<key>Quirks</key>
+		<dict>
+			<key>DisableRtcChecksum</key>
+			<false/>
+			<key>XhciPortLimit</key>
+			<false/>
+		</dict>
+
+		<key>Entries</key>
+		<array>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Auxiliary</key>
+				<false/>
+				<key>Comment</key>
+				<string>Not signed for security reasons</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Flavour</key>
+				<string>Auto</string>
+				<key>Name</key>
+				<string>CustomOS</string>
+				<key>Path</key>
+				<string>PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI</string>
+				<key>TextMode</key>
+				<false/>
+			</dict>
+		</array>
+
+		<key>Security</key>
+		<dict>
+			<key>AuthRestart</key>
+			<true/>
+			<key>BlacklistAppleUpdate</key>
+			<false/>
+		</dict>
+
+// старый
+
+				<key>boot-args</key>
+				<string>-v keepsyms=1 debug=0x100</string>
+
+// новый
+
+				<key>boot-args</key>
+				<string>keepsyms=1 alcid=3 igfxframe=0x0D220003 -wegnoegpu</string>
+
+// старый
+
+			<key>PointerSupportMode</key>
+			<string>ASUS</string>
+
+// новый
+
+			<key>PointerSupportMode</key>
+			<string></string>
+
+// старый
+
+		<key>ProtocolOverrides</key>
+		<dict>
+			<key>AppleAudio</key>
+			<false/>
+			<key>HashServices</key>
+			<false/>
+		</dict>
+
+// новый
+
+		<key>ProtocolOverrides</key>
+		<dict>
+			<key>AppleAudio</key>
+			<true/>
+			<key>HashServices</key>
+			<true/>
+		</dict>
