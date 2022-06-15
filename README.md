@@ -134,9 +134,12 @@ Native
 via [Proxmox](./PROXMOX-SETUP.md)
 ![](./hardware/proxmox.jpeg)
 
-## UPD 15.06.2022
+## UPD 15.06.2022 - про DisplayPort
 
 А я опять купил Z97 + 4790K + 24 GB. Будет второй Хакинтош - дублёр. Случайно выяснил, что Monterey работает на встройке, без внешней GPU. Мне нужен DisplayPort на материнке (чтобы тянуть 4K 60Hz) - это причина, почему Gaming 3, а не Gaming 5 (как в прошлый раз).
+
+![Gaming 3](./hardware/Gaming3.png)
+![Gaming 5](./hardware/Gaming5.png)
 
 ---
 
