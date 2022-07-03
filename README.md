@@ -146,7 +146,7 @@ via [Proxmox](./PROXMOX-SETUP.md)
 Переезд на последнее нативно поддерживаемое 10-поколение Intel: 
 MSI Z490 MAG Tomahawk + i5-10400 + 16GB DDR4-3600 (!) + RX580 Sapphire Pulse RX580 8GB
 
-Intel Power Gadget демонстрирует работу встройки (GFX Frequency) совместно с внешней видяхой, когда жамкаешь кнопочки обновления для H264 и HEVC внутри "Hardware Info Detected by VideoProc Converter".
+Intel Power Gadget демонстрирует работу встройки (GFX Frequency) совместно с внешней видяхой, когда жамкаешь кнопочки обновления для H264 и HEVC внутри "Hardware Info Detected by VideoProc Converter". Фокус в том, что i7-4790K так не умеет.
 
 Отказался от супер-пупер корпуса Cooler Master HAF XB EVO. Концепция поменялась. Сборка переехала в старый дешманский midi-tower, с которым у меня "сильная эмоциональная связь". Башня Thermalright Macho Rev.A TDP 240 Вт с одним вентилятором 140 мм. На вдув Noctua NF-A15 PWM - тоже 140 мм. На выдув участвует вентилятор БП, а там 135 мм. Радиатор чипсета и бэкплейт RX580 - тактильно горячо, но терпимо. Проц - 40°C, SSD - 50°C.
 
