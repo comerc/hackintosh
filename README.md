@@ -146,7 +146,7 @@ via [Proxmox](./PROXMOX-SETUP.md)
 Переезд на последнее нативно поддерживаемое 10-поколение Intel: 
 MSI Z490 MAG Tomahawk + i5-10400 + 32GB DDR4-3200 + RX580 Sapphire Pulse RX580 8GB
 
-Теперь в OBS доступна опция "Apple VT H264 Hardware Encoder", которая применяет встройку. Intel Power Gadget демонстрирует работу встройки (GFX Frequency) совместно с внешней видяхой, когда жамкаешь кнопочки обновления для H264 и HEVC внутри "Hardware Info Detected by VideoProc Converter". А фокус в том, что i7-4790K не поддерживает всего этого.
+Теперь в OBS доступна опция "Apple VT H264 Hardware Encoder", которая применяет встройку. Далее, Intel Power Gadget демонстрирует работу встройки (GFX Frequency) совместно с внешней видяхой, когда жамкаешь кнопочки обновления для H264 и HEVC внутри "Hardware Info Detected by VideoProc Converter". А фокус в том, что i7-4790K не поддерживает всего этого.
 
 Отказался от супер-пупер корпуса Cooler Master HAF XB EVO. Концепция поменялась. Сборка переехала в старый дешманский midi-tower, с которым у меня "сильная эмоциональная связь". Башня Thermalright Macho Rev.A TDP 240 Вт с одним вентилятором 140 мм. На вдув Noctua NF-A15 PWM - тоже 140 мм. На выдув участвует вентилятор БП, а там 135 мм. Радиатор чипсета и бэкплейт RX580 - тактильно горячо, но терпимо. Температуры в простое: CPU - 40°C, SSD - 47°C, GPU - 54°C.
 
