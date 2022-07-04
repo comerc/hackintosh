@@ -144,7 +144,7 @@ via [Proxmox](./PROXMOX-SETUP.md)
 ## UPD 01.07.2022
 
 Переезд на последнее нативно поддерживаемое 10-поколение Intel: 
-MSI Z490 MAG Tomahawk + i5-10400 + 16GB DDR4-3600 (!) + RX580 Sapphire Pulse RX580 8GB
+MSI Z490 MAG Tomahawk + i5-10400 + 32GB DDR4-3200 (!) + RX580 Sapphire Pulse RX580 8GB
 
 Intel Power Gadget демонстрирует работу встройки (GFX Frequency) совместно с внешней видяхой, когда жамкаешь кнопочки обновления для H264 и HEVC внутри "Hardware Info Detected by VideoProc Converter". Фокус в том, что i7-4790K так не умеет.
 
