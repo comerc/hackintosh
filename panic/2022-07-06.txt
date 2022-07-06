@@ -1,0 +1,63 @@
+panic(cpu 10 caller 0xffffff802256799f): userspace watchdog timeout: no successful checkins from WindowServer in 120 seconds
+service: logd, total successful checkins since load (5330 seconds ago): 534, last successful checkin: 0 seconds ago
+service: WindowServer, total successful checkins since load (5300 seconds ago): 518, last successful checkin: 120 seconds ago
+service: opendirectoryd, total successful checkins since load (5330 seconds ago): 533, last successful checkin: 0 seconds ago
+
+Panicked task 0xffffff9c09353d10: 3 threads: pid 114: watchdogd
+Backtrace (CPU 10), panicked thread: 0xffffff9c092da000, Frame : Return Address
+0xffffff809f943690 : 0xffffff801f081c8d mach_kernel : _handle_debugger_trap + 0x41d
+0xffffff809f9436e0 : 0xffffff801f1e1596 mach_kernel : _kdp_i386_trap + 0x116
+0xffffff809f943720 : 0xffffff801f1d0963 mach_kernel : _kernel_trap + 0x4d3
+0xffffff809f943770 : 0xffffff801f021a70 mach_kernel : _return_from_trap + 0xe0
+0xffffff809f943790 : 0xffffff801f08205d mach_kernel : _DebuggerTrapWithState + 0xad
+0xffffff809f9438b0 : 0xffffff801f081816 mach_kernel : _panic_trap_to_debugger + 0x2b6
+0xffffff809f943910 : 0xffffff801f915223 mach_kernel : _panic_with_options + 0x89
+0xffffff809f943a00 : 0xffffff802256799f com.apple.driver.watchdog : __ZN10IOWatchdog14userspacePanicEP8OSObjectPvP25IOExternalMethodArguments.cold.1 + 0x27
+0xffffff809f943a10 : 0xffffff80225675f2 com.apple.driver.watchdog : __ZN10IOWatchdog35userspaceDisableUserspaceMonitoringEP8OSObjectPvP25IOExternalMethodArguments
+0xffffff809f943a30 : 0xffffff8022566971 com.apple.driver.watchdog : __ZN20IOWatchdogUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv + 0x7f
+0xffffff809f943b60 : 0xffffff801f883a8c mach_kernel : _is_io_connect_method + 0x42c
+0xffffff809f943cc0 : 0xffffff801f1872e6 mach_kernel : _iokit_server_routine + 0x4f56
+0xffffff809f943dd0 : 0xffffff801f05c9ab mach_kernel : _ipc_kmsg_send + 0x46b
+0xffffff809f943e60 : 0xffffff801f0731f9 mach_kernel : _mach_msg_overwrite_trap + 0x2c9
+0xffffff809f943ef0 : 0xffffff801f1b35aa mach_kernel : _mach_call_munger64 + 0x1ea
+0xffffff809f943fa0 : 0xffffff801f022256 mach_kernel : _hndl_mach_scall64 + 0x16
+      Kernel Extensions in backtrace:
+         com.apple.driver.watchdog(1.0)[D6F8B92D-3418-34BA-B42B-F553E0C44C29]@0xffffff8022565000->0xffffff8022567fff
+
+Process name corresponding to current thread (0xffffff9c092da000): watchdogd
+Boot args: keepsyms=1 debug=0x100 gfxrst=1 chunklist-security-epoch=0 -chunklist-no-rev2-dev
+
+Mac OS version:
+21F79
+
+Kernel version:
+Darwin Kernel Version 21.5.0: Tue Apr 26 21:08:22 PDT 2022; root:xnu-8020.121.3~4/RELEASE_X86_64
+Kernel UUID: 3C587984-4004-3C76-8ADF-997822977184
+KernelCache slide: 0x000000001ee00000
+KernelCache base:  0xffffff801f000000
+Kernel slide:      0x000000001ee10000
+Kernel text base:  0xffffff801f010000
+__HIB  text base: 0xffffff801ef00000
+System model name: iMac20,1 (Mac-CFF7D910A743CAAF)
+System shutdown begun: NO
+Panic diags file available: YES (0x0)
+Hibernation exit count: 0
+
+System uptime in nanoseconds: 5351158201699
+Last Sleep:           absolute           base_tsc          base_nano
+  Uptime  : 0x000004dde9e23fd2
+  Sleep   : 0x0000000000000000 0x0000000000000000 0x0000000000000000
+  Wake    : 0x0000000000000000 0x00000007ef8ecb87 0x0000000000000000
+Compressor Info: 0% of compressed pages limit (OK) and 0% of segments limit (OK) with 0 swapfiles and OK swap space
+Zone info:
+  Zone map: 0xffffff959f1cf000 - 0xffffffb59f1cf000
+  . PGZ   : 0xffffff959f1cf000 - 0xffffff95a31d0000
+  . VM    : 0xffffff95a31d0000 - 0xffffff9a6f503000
+  . RO    : 0xffffff9a6f503000 - 0xffffff9c08b69000
+  . GEN0  : 0xffffff9c08b69000 - 0xffffffa0d4e9c000
+  . GEN1  : 0xffffffa0d4e9c000 - 0xffffffa5a11cf000
+  . GEN2  : 0xffffffa5a11cf000 - 0xffffffaa6d502000
+  . GEN3  : 0xffffffaa6d502000 - 0xffffffaf39835000
+  . DATA  : 0xffffffaf39835000 - 0xffffffb59f1cf000
+  Metadata: 0xffffff95731bf000 - 0xffffff95931bf000
+  Bitmaps : 0xffffff95931bf000 - 0xffffff959f1bf000
