@@ -165,6 +165,10 @@ https://forums.macrumors.com/threads/constant-kernel-panics-userspace-watchdog-t
 10105 DDR4-3200
 ![Geekbench_10105](./hardware/Geekbench_10105.jpg)
 
+## UPD 10.05.2023
+
+Очень долго грузится (больше 2 минут) - какая-то проблема с диском?
+
 ---
 
 😺 We love cats!
