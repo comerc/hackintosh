@@ -1,0 +1,63 @@
+panic(cpu 4 caller 0xffffff801fb747c6): nvme: "3rd party NVMe controller. PCI link down. Delete IO submission queue. fBuiltIn=1 MODEL=Samsung SSD 960 EVO 250GB FW=3B7QCXE7 CSTS=0xffffffff US[1]=0x0 US[0]=0x17d VID=0xffff DID=0xffff CRITICAL_WARNING=0x0.\n" @IONVMeController.cpp:6053
+Panicked task 0xffffff99dcd05670: 235 threads: pid 0: kernel_task
+Backtrace (CPU 4), panicked thread: 0xffffff950fe0f000, Frame : Return Address
+0xffffffeb24673a80 : 0xffffff801d281c8d mach_kernel : _handle_debugger_trap + 0x41d
+0xffffffeb24673ad0 : 0xffffff801d3e1596 mach_kernel : _kdp_i386_trap + 0x116
+0xffffffeb24673b10 : 0xffffff801d3d0963 mach_kernel : _kernel_trap + 0x4d3
+0xffffffeb24673b60 : 0xffffff801d221a70 mach_kernel : _return_from_trap + 0xe0
+0xffffffeb24673b80 : 0xffffff801d28205d mach_kernel : _DebuggerTrapWithState + 0xad
+0xffffffeb24673ca0 : 0xffffff801d281816 mach_kernel : _panic_trap_to_debugger + 0x2b6
+0xffffffeb24673d00 : 0xffffff801db15163 mach_kernel : _panic + 0x84
+0xffffffeb24673df0 : 0xffffff801fb747c6 com.apple.iokit.IONVMeFamily : __ZN16IONVMeController14CommandTimeoutEP16AppleNVMeRequest.cold.1
+0xffffffeb24673e00 : 0xffffff801fb57b13 com.apple.iokit.IONVMeFamily : __ZN16IONVMeController13FatalHandlingEv + 0x141
+0xffffffeb24673e30 : 0xffffff801fb579a9 com.apple.iokit.IONVMeFamily : __ZN16IONVMeController11ThreadEntryEv + 0x333
+0xffffffeb24673e70 : 0xffffff801d2d43a5 mach_kernel : _thread_call_delayed_timer + 0x505
+0xffffffeb24673ee0 : 0xffffff801d2d5472 mach_kernel : _thread_call_delayed_timer + 0x15d2
+0xffffffeb24673fa0 : 0xffffff801d22119e mach_kernel : _call_continuation + 0x2e
+      Kernel Extensions in backtrace:
+         com.apple.iokit.IONVMeFamily(2.1)[B900A26E-D6A1-3D50-A2A9-6179B005F336]@0xffffff801fb4f000->0xffffff801fb7bfff
+            dependency: com.apple.driver.AppleMobileFileIntegrity(1.0.5)[2B96E04B-E2A5-3296-AF14-6A766880A652]@0xffffff801e9a1000->0xffffff801e9c2fff
+            dependency: com.apple.iokit.IOPCIFamily(2.9)[654ABF9D-EB24-3B64-AB1C-EC2AC8357192]@0xffffff801fe24000->0xffffff801fe4ffff
+            dependency: com.apple.iokit.IOReportFamily(47)[5578189C-7C1D-3158-B357-F8D6A216DCE1]@0xffffff801fe61000->0xffffff801fe63fff
+            dependency: com.apple.iokit.IOStorageFamily(2.1)[66DDF66B-57B8-3994-83B5-B5A169C445E1]@0xffffff801ff66000->0xffffff801ff7cfff
+
+Process name corresponding to current thread (0xffffff950fe0f000): kernel_task
+Boot args: keepsyms=1 debug=0x100 gfxrst=1 chunklist-security-epoch=0 -chunklist-no-rev2-dev
+
+Mac OS version:
+21F79
+
+Kernel version:
+Darwin Kernel Version 21.5.0: Tue Apr 26 21:08:22 PDT 2022; root:xnu-8020.121.3~4/RELEASE_X86_64
+Kernel UUID: 3C587984-4004-3C76-8ADF-997822977184
+KernelCache slide: 0x000000001d000000
+KernelCache base:  0xffffff801d200000
+Kernel slide:      0x000000001d010000
+Kernel text base:  0xffffff801d210000
+__HIB  text base: 0xffffff801d100000
+System model name: iMac20,1 (Mac-CFF7D910A743CAAF)
+System shutdown begun: NO
+Panic diags file available: YES (0x0)
+Hibernation exit count: 0
+
+System uptime in nanoseconds: 22267996014238
+Last Sleep:           absolute           base_tsc          base_nano
+  Uptime  : 0x00001440abfe091d
+  Sleep   : 0x0000143e5396e075 0x00000000d1674aae 0x000014312af936c7
+  Wake    : 0x0000143fbaf7c5ff 0x00000000d1b6c870 0x0000143ecb408ad8
+Compressor Info: 0% of compressed pages limit (OK) and 0% of segments limit (OK) with 0 swapfiles and OK swap space
+Zone info:
+  Zone map: 0xffffff80426f8000 - 0xffffffa0426f8000
+  . PGZ   : 0xffffff80426f8000 - 0xffffff80466f9000
+  . VM    : 0xffffff80466f9000 - 0xffffff8512a2c000
+  . RO    : 0xffffff8512a2c000 - 0xffffff86ac092000
+  . GEN0  : 0xffffff86ac092000 - 0xffffff8b783c5000
+  . GEN1  : 0xffffff8b783c5000 - 0xffffff90446f8000
+  . GEN2  : 0xffffff90446f8000 - 0xffffff9510a2b000
+  . GEN3  : 0xffffff9510a2b000 - 0xffffff99dcd5e000
+  . DATA  : 0xffffff99dcd5e000 - 0xffffffa0426f8000
+  Metadata: 0xffffffea84826000 - 0xffffffeaa4826000
+  Bitmaps : 0xffffffeaa4826000 - 0xffffffeab0826000
+
+
+
