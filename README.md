@@ -169,6 +169,30 @@ https://forums.macrumors.com/threads/constant-kernel-panics-userspace-watchdog-t
 
 Очень долго грузится (больше 2 минут) - какая-то проблема с диском?
 
+## UPD 17.02.2025
+
+Переезд на PCIe Gen4 (требуется обновить BIOS на метеринке и заменить процессор на Gen11), видеокарта последняя поддерживаемая на хакинтош.
+
+MSI Z490 MAG Tomahawk + i7-11700K + 32GB DDR4-3200 + SAPPHIRE NITRO+ RX 6900 XT SE GAMING OC 16GB GDDR6 + Samsung 990 PRO 2TB (PCIe Gen4) + ADATA XPG SX8200 Pro 1TB (PCIe Gen3) + Cooler Master V850 (80 Plus Gold)
+
+![120hz](./hardware/120hz.jpg)
+
+![cables](./hardware/cables.jpg)
+
+![hdd_basket](./hardware/hdd_basket.jpg)
+
+![power](./hardware/power.jpg)
+
+![front_cooler](./hardware/front_cooler.jpg)
+
+![Geekbench_11700K](./hardware/Geekbench_11700K.png)
+
+- [Создание загружаемого установщика для macOS](https://support.apple.com/ru-ru/101578)
+- [Образ macOS Sequoia](https://appstorrent.ru/3282-macos-sequoia.html)
+- [Hackintool](https://github.com/benbaker76/Hackintool)
+- [OpenCore Configurator](https://formulae.brew.sh/cask/opencore-configurator)
+- [120mm Fan Bracket](https://www.printables.com/model/68734-120mm-fan-bracket-for-pc-525-inch-bays)
+
 ---
 
 😺 We love cats!
