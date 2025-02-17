@@ -171,7 +171,7 @@ https://forums.macrumors.com/threads/constant-kernel-panics-userspace-watchdog-t
 
 ## UPD 17.02.2025
 
-Переезд на PCIe Gen4 (требуется обновить BIOS на метеринке и заменить процессор на Gen11), видеокарта последняя поддерживаемая на хакинтош.
+Переезд на PCIe Gen4 (требуется обновить BIOS на материнке и заменить процессор на Gen11) + видеокарта последняя поддерживаемая на хакинтош (для телека на 120Гц) + установка MacOS 15 Sequoia.
 
 MSI Z490 MAG Tomahawk + i7-11700K + 32GB DDR4-3200 + SAPPHIRE NITRO+ RX 6900 XT SE GAMING OC 16GB GDDR6 + Samsung 990 PRO 2TB (PCIe Gen4) + ADATA XPG SX8200 Pro 1TB (PCIe Gen3) + Cooler Master V850 (80 Plus Gold)
 
